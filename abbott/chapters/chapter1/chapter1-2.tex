@@ -55,29 +55,36 @@
   \label{demorgan} 
   Let $A$ and $B$ be subsets of $\mathbf R$.
   \enum{
-  \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$
-  \item Prove the reverse inclusion $(A \cap B)^{c} \supseteq A^{c} \cup B^{c}$, and conclude that $(A \cap B)^{c}=A^{c} \cup B^{c}$
+  \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$.
+  \item Prove the reverse inclusion $(A \cap B)^{c} \supseteq A^{c} \cup B^{c}$, and conclude that $(A \cap B)^{c}=A^{c} \cup B^{c}$.
   \item Show $(A \cup B)^{c}=A^{c} \cap B^{c}$ by demonstrating inclusion both ways.
   }
 \end{exercise}
   
 \begin{solution}
   \enum{
-  \item 
+  \item $x\in (A\cap B)^c\iff x\notin A\cap B$, which is to say that either $x\notin A$ or $x\notin B$. Therefore $x\in A^c\cup B^c$, which means that $(A\cap B)^c \subseteq A^c\cup B^c$.
+  \item For the reverse, the same proof holds, as all statements in (a) are true in both directions.
+  \item $x\in (A\cup B)^c\iff x\notin A\cup B\iff x$ is not in $A$ or $B\iff x\in A^c\cap B^c$.
   }
 \end{solution}
 
 \begin{exercise}
   \enum{
   \item Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
-  \item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq(|a|+|b|)^{2}$
+  \item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq(|a|+|b|)^{2}$.
   \item Prove $|a-b| \leq|a-c|+|c-d|+|d-b|$ for all $a, b, c$, and $d$.
   \item Prove $\| a|-| b|| \leq|a-b|$. (The unremarkable identity $a=a-b+b$ may be useful.)
   }
 \end{exercise}
 
 \begin{solution}
-  
+  \enum{
+  \item When $a$ and $b$ have the same sign, $|a+b|=|a|+|b|$ and so the triangle inequality is true.
+  \item $(|a|+|b|)^2=a^2+2|a||b|+b^2\geq a^2+2ab+b^2=(a+b)^2\implies |a+b|\leq |a|+|b|$ as squaring a value and taking its positive square root is equivalent to taking its absolute value.
+  \item By the triangle inequality, $|a-b| = |(a-c)+(c-d)+(d-b)|\leq |a-c|+|(c-d)+(d-b)|\leq |a-c|+|c-d|+|d-b|$.
+  \item $(|a|-|b|)^2=a^2-2|a||b|+b^2\leq a^2-2ab+b^2=(a-b)^2\implies |a-b|\geq ||a|-|b||$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -85,13 +92,13 @@
   \enum{
   \item Let $f(x)=x^{2} .$ If $A=[0,2]$ (the closed interval $\left.\{x \in \mathbf{R}: 0 \leq x \leq 2\}\right)$ and $B=[1,4]$, find $f(A)$ and $f(B) .$ Does $f(A \cap B)=f(A) \cap f(B)$ in this case? Does $f(A \cup B)=f(A) \cup f(B) ?$
   \item Find two sets $A$ and $B$ for which $f(A \cap B) \neq f(A) \cap f(B)$.
-  \item  Show that, for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g(A \cap B) \subseteq g(A) \cap g(B)$ for all sets $A, B \subseteq \mathbf{R}$
-  \item Form and prove a conjecture about the relationship between $g(A \cup B)$ and $g(A) \cup g(B)$ for an arbitrary function $g$
+  \item  Show that, for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g(A \cap B) \subseteq g(A) \cap g(B)$ for all sets $A, B \subseteq \mathbf{R}$.
+  \item Form and prove a conjecture about the relationship between $g(A \cup B)$ and $g(A) \cup g(B)$ for an arbitrary function $g$.
   }
 \end{exercise}
-
+  
 \begin{solution}
- 
+  
 \end{solution}
 
 \begin{exercise}
