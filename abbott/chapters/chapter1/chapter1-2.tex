@@ -1,0 +1,177 @@
+\section{Some Preliminaries}
+
+\begin{exercise}
+  \enum{
+  \item Prove that $\sqrt 3$ is irrational. Does a similar similar argument work to show $\sqrt 6$ is irrational?
+  \item Where does the proof break down if we try to prove $\sqrt 4$ is irrational?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+  \item 
+  }
+\end{solution}
+
+\begin{exercise}
+  Show that there is no rational number satisfying $2^r = 3$
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+  Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+  \enum{
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all sets containing an infinite number of elements, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is infinite as well.
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is finite and nonempty.
+  \item $A \cap(B \cup C)=(A \cap B) \cup C$.
+  \item $A \cap(B \cap C)=(A \cap B) \cap C$.
+  \item $A \cap(B \cup C)=(A \cap B) \cup(A \cap C)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{exercise}
+  Produce an infinite collection of sets $A_{1}, A_{2}, A_{3}, \ldots$ with the property that every $A_{i}$ has an infinite number of elements, $A_{i} \cap A_{j}=\emptyset$ for all $i \neq j$, and $\bigcup_{i=1}^{\infty} A_{i}=\mathbf{N}$
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}[De Morgan's Laws]
+  \label{demorgan}
+  Let $A$ and $B$ be subsets of $\mathbf R$.
+  \enum{
+  \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$
+
+  \item Prove the reverse inclusion $(A \cap B)^{c} \supseteq A^{c} \cup B^{c}$, and conclude that $(A \cap B)^{c}=A^{c} \cup B^{c}$
+  \item Show $(A \cup B)^{c}=A^{c} \cap B^{c}$ by demonstrating inclusion both ways.
+  }
+\end{exercise}
+
+\begin{solution}
+ 
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+  \item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq(|a|+|b|)^{2}$
+  \item Prove $|a-b| \leq|a-c|+|c-d|+|d-b|$ for all $a, b, c$, and $d$.
+  \item Prove $\| a|-| b|| \leq|a-b|$. (The unremarkable identity $a=a-b+b$ may be useful.)
+  }
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{exercise}
+  Given a function $f$ and a subset $A$ of its domain, let $f(A)$ represent the range of $f$ over the set $A$; that is, $f(A)=\{f(x): x \in A\}$.
+  \enum{
+  \item Let $f(x)=x^{2} .$ If $A=[0,2]$ (the closed interval $\left.\{x \in \mathbf{R}: 0 \leq x \leq 2\}\right)$ and $B=[1,4]$, find $f(A)$ and $f(B) .$ Does $f(A \cap B)=f(A) \cap f(B)$ in this case? Does $f(A \cup B)=f(A) \cup f(B) ?$
+  \item Find two sets $A$ and $B$ for which $f(A \cap B) \neq f(A) \cap f(B)$.
+  \item  Show that, for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g(A \cap B) \subseteq g(A) \cap g(B)$ for all sets $A, B \subseteq \mathbf{R}$
+  \item Form and prove a conjecture about the relationship between $g(A \cup B)$ and $g(A) \cup g(B)$ for an arbitrary function $g$
+  }
+\end{exercise}
+
+\begin{solution}
+ 
+\end{solution}
+
+\begin{exercise}
+  Here are two important definitions related to a function $f:$ $A \rightarrow B .$ The function $f$ is \emph{one-to-one} $(1-1)$ if $a_{1} \neq a_{2}$ in $A$ implies that $f\left(a_{1}\right) \neq$ $f\left(a_{2}\right)$ in $B$. The function $f$ is \emph{onto} if, given any $b \in B$, it is possible to find an element $a \in A$ for which $f(a)=b$
+  Give an example of each or state that the request is impossible:
+  \enum{
+  \item $f: \mathbf{N} \rightarrow \mathbf{N}$ that is $1-1$ but not onto.
+  \item $f: \mathbf{N} \rightarrow \mathbf{N}$ that is onto but not $1-1$.
+  \item $f: \mathbf{N} \rightarrow \mathbf{Z}$ that is $1-1$ and onto.
+  }
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{exercise}
+  Given a function $f: D \rightarrow \mathbf{R}$ and a subset $B \subseteq \mathbf{R}$, let $f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B ;$ that is, $f^{-1}(B)=\{x \in D: f(x) \in B\} .$ This set is called the \emph{preimage} of $B$.
+  \enum{
+  \item Let $f(x)=x^{2} .$ If $A$ is the closed interval $[0,4]$ and $B$ is the closed interval $[-1,1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does $f^{-1}(A \cap B)=f^{-1}(A) \cap f^{-1}(B)$ in this case? Does $f^{-1}(A \cup B)=f^{-1}(A) \cup f^{-1}(B) ?$
+  \item The good behavior of preimages demonstrated in (a) is completely general. Show that for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g^{-1}(A \cap B)=g^{-1}(A) \cap g^{-1}(B)$ and $g^{-1}(A \cup B)=g^{-1}(A) \cup g^{-1}(B)$ for all sets $A, B \subseteq \mathbf{R}$
+  }
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+
+\begin{exercise}
+  Decide which of the following are true statements. Provide a short justification for those that are valid and a counterexample for those that are not:
+  \enum{
+  \item Two real numbers satisfy $a<b$ if and only if $a<b+\epsilon$ for every $\epsilon>0$.
+  \item Two real numbers satisfy $a<b$ if $a<b+\epsilon$ for every $\epsilon>0$.
+  \item Two real numbers satisfy $a \leq b$ if and only if $a<b+\epsilon$ for every $\epsilon>0$.
+  }
+\end{exercise}
+
+
+\begin{solution}
+ 
+\end{solution}
+
+\begin{exercise}
+  Form the logical negation of each claim. One trivial way to do this is to simply add ``It is not the case that...'' in front of each assertion. To make this interesting, fashion the negation into a positive statement that avoids using the word ``not'' altogether. In each case, make an intuitive guess as to whether the claim or its negation is the true statement.
+  \enum{
+  \item For all real numbers satisfying $a<b$, there exists an $n \in \mathbf{N}$ such that $a+1 / n<b$
+  \item There exists a real number $x>0$ such that $x<1 / n$ for all $n \in \mathbf{N}$.
+  \item Between every two distinct real numbers there is a rational number.
+  }
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+
+\begin{exercise}
+  Let $y_{1}=6$, and for each $n \in \mathbf{N}$ define $y_{n+1}=\left(2 y_{n}-6\right) / 3$
+  \enum{
+  \item Use induction to prove that the sequence satisfies $y_{n}>-6$ for all $n \in \mathbf{N}$.
+  \item Use another induction argument to show the sequence $\left(y_{1}, y_{2}, y_{3}, \ldots\right)$ is decreasing.
+  }
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{exercise}
+  For this exercise, assume Exercise \ref{demorgan} has been successfully completed.
+  \enum{
+  \item Show how induction can be used to conclude that
+    $$
+    \left(A_{1} \cup A_{2} \cup \cdots \cup A_{n}\right)^{c}=A_{1}^{c} \cap A_{2}^{c} \cap \cdots \cap A_{n}^{c}
+    $$
+    for any finite $n \in \mathbf{N}$
+  \item It is tempting to appeal to induction to conclude
+    $$
+    \left(\bigcup_{i=1}^{\infty} A_{i}\right)^{c}=\bigcap_{i=1}^{\infty} A_{i}^{c}
+    $$
+    but induction does not apply here. Induction is used to prove that a particular statement holds for every value of $n \in \mathbf{N}$, but this does not imply the validity of the infinite case. To illustrate this point, find an example of a collection of sets $B_{1}, B_{2}, B_{3}, \ldots$ where $\bigcap_{i=1}^{n} B_{i} \neq \emptyset$ is true for every $n \in \mathbf{N}$, but $\bigcap_{i=1}^{\infty} B_{i} \neq \emptyset$ fails.
+  \item Nevertheless, the infinite version of De Morgan's Law stated in (b) is a valid statement. Provide a proof that does not use induction.
+  }
+\end{exercise}
+
+\begin{solution}
+ 
+\end{solution}
