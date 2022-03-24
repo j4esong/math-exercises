@@ -9,17 +9,17 @@
 
 \begin{solution}
   \enum{
-  \item
-  \item 
+  \item Assume, for contradiction, that there exists two integers $p$ and $q$ such that $p/q = \sqrt{3}$, and $p/q$ is in lowest terms. Then $(p/q)^2 = 3$, and $p^2 = 3q^2$. Thus $p$ is divisible by $3$, and we can write $p = 3r$. Rearranging, however, we get $q^2 = 3r^2$, which implies that $q$ is divisible by $3$ as well and contradicts our assumption that $p/q$ was in lowest terms. The same proof holds for $\sqrt{6}$.
+  \item Assuming that $p^2$ is divisible by $4$ $\implies$ $p$ is divisible by $4$ does not hold.
   }
 \end{solution}
 
 \begin{exercise}
-  Show that there is no rational number satisfying $2^r = 3$
+  Show that there is no rational number satisfying $2^r = 3$.
 \end{exercise}
 
 \begin{solution}
-
+  If $2^r = 3$ and $r = p/q$ where $p$ and $q$ are integers, then $2^{p/q} = 3$ or $2^p = 3^q$. This is impossible, so $r$ must not be a rational number.
 \end{solution}
 
 \begin{exercise}
@@ -34,7 +34,13 @@
 \end{exercise}
 
 \begin{solution}
-  
+  \enum{
+  \item False. For example, consider $\bigcap_{n=0}^{\infty} A_n$ where $A_n = \{k2^n \mid k \in \mathbf{Z}^+\}$, where every set contains the all multiples of $2^n$ and is therefore infinite, but the only common element is $0$.
+  \item True. $\bigcap_{n=1}^{\infty} A_n$ must be a subset of every $A_n$. However, $A_n$ is finite, and an infinite set cannot be the subset of a finite set.
+  \item False. The set on the right includes all of $C$, whereas the set on the left includes only $A \cap C$. If $A \neq C$, then this falls apart.
+  \item True. An element is in all three sets if and only if it is in both the left and the right set.
+  \item True. If $x \in A \cap (B \cup C)$, then $x \in A \cap B$ or $x \in A \cap C$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -46,7 +52,7 @@
 \end{solution}
 
 \begin{exercise}[De Morgan's Laws]
-  \label{demorgan}
+  \label{demorgan} 
   Let $A$ and $B$ be subsets of $\mathbf R$.
   \enum{
   \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$
@@ -100,7 +106,6 @@
 \begin{solution}
   
 \end{solution}
-
 
 \begin{exercise}
   Given a function $f: D \rightarrow \mathbf{R}$ and a subset $B \subseteq \mathbf{R}$, let $f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B ;$ that is, $f^{-1}(B)=\{x \in D: f(x) \in B\} .$ This set is called the \emph{preimage} of $B$.
