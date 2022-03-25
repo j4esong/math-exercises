@@ -1,0 +1,194 @@
+\section{The Axiom of Completeness}
+
+\begin{exercise}
+  \enum{
+  \item Write a formal definition in the style of Definition 1.3.2 for the \emph{infimum} or \emph{greatest lower bound} of a set.
+  \item Now, state and prove a version of Lemma 1.3.8 for greatest lower bounds.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item A real number $s$ is the greatest lower bound for a set $A\subseteq\mathbf{R}$ if it meets the following two criteria:
+
+  $s$ is a lower bound for $A$, 
+
+  if $b$ is any lower bound for $A$, $b\leq s$.
+  \item Lemma: assume $s\in\mathbf{R}$ is a lower bound for a set $A\subseteq\mathbf{R}$. Then $s=\inf A$ if and only if, for every choice of $\epsilon>0$, there exists an element $a\in A$ such that $s+\epsilon>a$.
+
+  $(\Rightarrow )$ Assume that $s = \inf A$. Consider $s+\epsilon$. Because $s+\epsilon>s$, part (ii) of the definition of the infimum implies that $s+\epsilon$ is not a lower bound for $A$. Therefore there must be some $a\in A$ such that $a<s+\epsilon$.
+
+  $(\Leftarrow )$ Assume that $s$ is a lower bound for $A$ with the property that there exists $a\in A$ satisfying $s+\epsilon>a$ for all $\epsilon$. This implies that any number greater than $s$ cannot be a lower bound for $A$, and thus that any lower bound for $A$ is less than or equal to $s$. Therefore $s$ is the infimum of $A$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Give an example of each of the following, or state that the request is impossible.
+  \enum{
+  \item A set $B$ with inf $B \geq \sup B$.
+  \item A finite set that contains its infimum but not its supremum.
+  \item A bounded subset of $\mathbf{Q}$ that contains its supremum but not its infimum.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item ${2}$.
+  \item This is impossible. All finite sets must contain both their infimum and their supremum; they are the minimum and maximum elements, respectively.
+  \item $A = {x \mid 1 < x \leq 2}$. $\sup A = 2\in A$, and $\inf A = 1\notin A$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $A$ be nonempty and bounded below, and define $B=$ $\{b \in \mathbf{R}: b$ is a lower bound for $A\}$. Show that $\sup B=\inf A$.
+  \item Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item By definition of the infimum, all elements of $B$ must be less than or equal to $\inf A = p$; therefore, $p$ must be an upper bound on $B$. Since $p\in B$ (the infimum is a lower bound itself), $p$ must also be the supremum of $B$. Therefore $p=\sup B =\inf A$.
+  \item If a set $A$ is lower bounded, the set $B$ of all lower bounds for $A$ is nonempty. We also know that $B$ is upper bounded - any element of $A$ can serve as an upper bound. Therefore $B$ must have a supremum, and $\sup B = \inf A$ as follows from (a).
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $A_{1}, A_{2}, A_{3}, \ldots$ be a collection of nonempty sets, each of which is bounded above.
+  \enum{
+  \item Find a formula for $\sup \left(A_{1} \cup A_{2}\right)$. Extend this to $\sup \left(\bigcup_{k=1}^{n} A_{k}\right)$.
+  \item Consider $\sup \left(\bigcup_{k=1}^{\infty} A_{k}\right)$. Does the formula in (a) extend to the infinite case?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $\sup (A_1\cup A_2) = \max(\sup A_1, \sup A_2)$
+
+  $\sup\left(\bigcup_{i=1}^{n} A_k\right) = \max(\sup A_1, \ldots, \sup A_n)$
+  \item Yes. If it can be shown that $a\in\mathbf{R}$ is the supremum for all $A_k$, then it is the supremum for $\bigcup_{k=1}^{\infty} A_{k}$.
+  }
+\end{solution}
+
+\begin{exercise}
+  As in Example 1.3.7, let $A \subseteq \mathbf{R}$ be nonempty and bounded above, and let $c \in \mathbf{R}$. This time define the set $c A=\{c a: a \in A\}$.
+  \enum{
+  \item If $c \geq 0$, show that $\sup (c A)=c \sup A$.
+  \item Postulate a similar type of statement for $\sup (c A)$ for the case $c<0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $s=\sup A$. Now for any $cx$ where $c\geq 0$ and $x\in A$, it follows from $s\geq x$ that $cs\geq cx$. Therefore $cs$ is an upper bound for $cA$. 
+
+  For contradiction, assume that there exists a value $\epsilon>0$ such that $cs-\epsilon$ is an upper bound on $cA$. In this case, $cs-\epsilon\geq cx$, for all $x\in A$, and $s-\frac{\epsilon}{c}\geq x$. This would imply that there is a value less than $s$ that is an upper bound for $A$; however, this is impossible because $s=\sup A$. Thus, $cs = c\sup A$ is the least upper bound for $cA$.
+  \item It is trivial to see that, by flipping the inequalities from (a), we get $c \inf A = \sup cA$ for $c < 0$.
+  }
+\end{solution}
+
+\begin{exercise}
+  Given sets $A$ and $B$, define $A+B=\{a+b: a \in A$ and $b \in B\}$. Follow these steps to prove that if $A$ and $B$ are nonempty and bounded above then $\sup (A+B)=\sup A+\sup B$.
+  \enum{
+  \item Let $s=\sup A$ and $t=\sup B$. Show $s+t$ is an upper bound for $A+B$.
+  \item Now let $u$ be an arbitrary upper bound for $A+B$, and temporarily fix $a \in A$. Show $t \leq u-a$.
+  \item Finally, show $\sup (A+B)=s+t$.
+  \item Construct another proof of this same fact using Lemma 1.3.8.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $\sup A + \sup B \geq a + b$ follows from the fact that $\sup A \geq a$ and $\sup B \geq b$ for all $a\in A$ and $b\in B$.
+  \item $u$ is an upper bound for $A+B$, so $u \geq a + b$ for all $a\in A$ and $b\in B$. Fixing $a$, we have $u-a\geq b$ for all $b\in B$. Thus, $u-a$ is an upper bound for $B$, and so $t=\sup B\leq u-a$.
+  \item It has been shown that $s + t$ is an upper bound for $A+B$; what remains to be shown is that it is the least upper bound.
+
+  From (b), $t\leq u-a$, where $u$ is any upper bound for $A+B$. 
+  So $a\leq u-t$, and since $u-t$ is an upper bound for $A$, $u-t\geq s$. Therefore $s\leq u-t$, and $s+t\leq u$ as desired.
+  }
+\end{solution}
+
+\begin{exercise}
+  Prove that if $a$ is an upper bound for $A$, and if $a$ is also an element of $A$, then it must be that $a=\sup A$.
+\end{exercise}
+
+\begin{solution}
+  $a$ must be the least upper bound; if $a-\epsilon$ were to be an upper bound, it would be less than $a$ itself and therefore not be an upper bound.
+\end{solution}
+
+\begin{exercise}
+  Compute, without proofs, the suprema and infima (if they exist) of the following sets:
+  \enum{
+  \item $\{m / n: m, n \in \mathbf{N}$ with $m<n\}$.
+  \item $\left\{(-1)^{m} / n: m, n \in \mathbf{N}\right\}$.
+  \item $\{n /(3 n+1): n \in \mathbf{N}\}$
+  \item $\{m /(m+n): m, n \in \mathbf{N}\}$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $\inf A = 0$, $\sup A$ = 1
+  \item $\inf B=-1$, $\sup B$ = 1
+  \item $\inf C=\frac{1}{4}$, $\sup C = \frac{1}{3}$
+  \item $\inf D=0$, $\sup D=1$
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item If $\sup A<\sup B$, show that there exists an element $b \in B$ that is an upper bound for $A$.
+  \item Give an example to show that this is not always the case if we only assume $\sup A \leq \sup B$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $\sup A<\sup B$ implies that there is an element $b\in B$ such that $b>\sup A$. If no such element existed, then $\sup A$ would be an upper bound for $B$, which is impossible as $\sup A<\sup B$. 
+  \item If $\sup A = \sup B$ and $B$ does not include its supremum, then this does not hold. For example, $A = (0, 1)$, $B = (0, 1)$.
+  }
+\end{solution}
+
+\begin{exercise}[Cut Property]
+
+  The Cut Property of the real numbers is the following:
+
+  If $A$ and $B$ are nonempty, disjoint sets with $A \cup B=\mathbf{R}$ and $a<b$ for all $a \in A$ and $b \in B$, then there exists $c \in \mathbf{R}$ such that $x \leq c$ whenever $x \in A$ and $x \geq c$ whenever $x \in B$.
+
+  \enum{
+  \item Use the Axiom of Completeness to prove the Cut Property.
+  \item Show that the implication goes the other way; that is, assume $\mathbf{R}$ possesses the Cut Property and let $E$ be a nonempty set that is bounded above. Prove $\sup E$ exists.
+  \item The punchline of parts (a) and (b) is that the Cut Property could be used in place of the Axiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid statement when $\mathbf{R}$ is replaced by $\mathbf{Q}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Since $B$ is nonempty, choose any element as an upper bound for $A$. By the Axiom of Completeness, let $c = \sup A$. Notice that every $b\in B$ is an upper bound for $A$, so $c \leq b$ for all $b\in B$; by definition, $a \leq p$ for all $a\in A$.
+  \item 
+  \REPLACE
+  Let $B$ be the set of all upper bounds of $E$ and let $A = \mathbf{R}\setminus B$. Thus $A$ and $B$ are disjoint and $A\cup B=\mathbf{R}$.
+
+  Assume, for contradiction, that $\sup E$ does not exist. Since $B$ does not have a smallest element, $E\cap B = \emptyset$. Therefore $E\subseteq A$. By the Cut Property, there must exist a $c\in\mathbf{R}$ such that $a\leq c$ and $c\leq b$. Since $B$ does not have a smallest element, $c\notin B$. However, since $E\subseteq A$, $c$ is an upper bound for $E$ and must be in $B$, which is a contradiction.
+  \item Let $A, B\subset\mathbf{Q}$, and $A = (-\infty, \sqrt2)$ and $B = (\sqrt2, +\infty)$. The Cut Property does not hold; there is no rational number $c$ for which $x \leq c$ whenever $x\in A$ and $x \geq c$ whenever $x \in B$. 
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+  \enum{
+  \item If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \leq$ $\sup B .$
+  \item If $\sup A<\inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbf{R}$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$.
+  \item If there exists a $c \in \mathbf{R}$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$, then $\sup A<\inf B$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item True. $\sup B$ must be an upper bound on $A$. By definition, $\sup A\leq \sup B$. 
+  \item True. Any real number $c$ such that $\sup A < c < \inf B$ will suffice.
+  \item False. Consider $(0, 2)$ and $(2, 3)$. $a < 2 < b$ for all $a\in A$ and $b\in B$, but $2\not < 2$.
+  }
+\end{solution}
