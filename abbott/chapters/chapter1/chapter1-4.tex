@@ -1,0 +1,107 @@
+\section{Consequences of Completeness}
+
+\begin{exercise}
+  Recall that $\mathbf{I}$ stands for the set of irrational numbers.
+  \enum{
+  \item Show that if $a, b \in \mathbf{Q}$, then $a b$ and $a+b$ are elements of $\mathbf{Q}$ as well.
+  \item Show that if $a \in \mathbf{Q}$ and $t \in \mathbf{I}$, then $a+t \in \mathbf{I}$ and $a t \in \mathbf{I}$ as long as $a \neq 0$.
+  \item Part (a) can be summarized by saying that $\mathbf{Q}$ is closed under addition and multiplication. Is $\mathbf{I}$ closed under addition and multiplication? Given two irrational numbers $s$ and $t$, what can we say about $s+t$ and $s t$?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $a=\frac{p}{q}$ and $b=\frac{n}{m}$, where $p, q, n, m\in\mathbf{Z}$. Then $ab=\frac{np}{mq}\in\mathbf{Q}$, and $a+b=\frac{mp+nq}{qm}\in\mathbf{Q}$.
+  \item If $\frac{p}{q}+t=\frac{n}{m}$, then $t=\frac{n}{m}-\frac{p}{q}$ which contradicts (a).
+
+  Similarly, $\frac{p}{q}t=\frac{n}{m}$ implies $t=\frac{nq}{mp}$, which also contradicts (a).
+  \item $\mathbf{I}$ is not closed under addition or multiplication. $\sqrt2 \cdot \sqrt2=2$, and $\sqrt2 - \sqrt2=0$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Let $A \subseteq \mathbf{R}$ be nonempty and bounded above, and let $s \in \mathbf{R}$ have the property that for all $n \in \mathbf{N}, s+\frac{1}{n}$ is an upper bound for $A$ and $s-\frac{1}{n}$ is not an upper bound for $A$. Show $s=\sup A$.
+\end{exercise}
+
+\begin{solution}
+  To show that $s$ is an upper bound for $A$, assume for contradiction that there did exist $a > s$ where $a\in A$. The Archimedean property states that there exists $n\in\mathbf{N}$ such that $\frac{1}{n} < a - s$. Then $s + \frac{1}{n} < a$, but this is impossible as $s+\frac{1}{n}$.
+
+  Now assume that there is an arbitrary upper bound $q < s$. Similarly, we set $n\in\mathbf{N}$ such that $s-\frac{1}{n}>q$, which must not be an upper bound. However, this is a contradiction because this would imply that there is an element of $A$ that is larger than $s-\frac{1}{n}$ and thus $q$.
+\end{solution}
+
+
+\begin{exercise}
+  Prove that $\bigcap_{n=1}^{\infty}(0,1 / n)=\emptyset$. Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion of the theorem to hold.
+\end{exercise}
+
+\begin{solution}
+  Assume, for contradiction, that $$c\in\bigcap^\infty_{n=1} \left( 0, \frac{1}{n}\right).$$ But by the Archimedean property, there exists $n_0\in\mathbf{N}$ such that $\frac{1}{n_0}<c$. Therefore, the intersection is the empty set.
+\end{solution}
+
+
+\begin{exercise}
+  Let $a<b$ be real numbers and consider the set $T=\mathbf{Q} \cap[a, b]$. Show $\sup T=b$.
+\end{exercise}
+
+\begin{solution}
+  $b$ is an upper bound for $T$ since all elements of $T$ are also elements of $[a, b]$.
+
+  Now consider an arbitrary upper bound $p$ for $T$ such that $p=b-\epsilon$, where $0<\epsilon<b-a$. However, by Theorem 1.4.3, there must exist a $c\in\mathbf{Q}$ such that $b-\epsilon<c<b$; since $b-\epsilon$ and $b$ are both in $[a,b]$, $c\in (a, b)$. But $c>p$, so $p$ cannot be an upper bound. Therefore, all upper bounds for $T$ are greater than or equal to $b$.
+\end{solution}
+
+\begin{exercise}
+  Using Exercise 1.4.1, supply a proof that $\mathbf{I}$ is dense in $\mathbf{R}$ by considering the real numbers $a-\sqrt{2}$ and $b-\sqrt{2}$. In other words show for every two real numbers $a<b$ there exists an irrational number $t$ with $a<t<b$.
+\end{exercise}
+
+\begin{solution}
+  There exists a rational number $s$ such that $a-\sqrt2 <s<b-\sqrt2$. Therefore $a<s+\sqrt2 <b$ and $s+\sqrt2 \mathbf{I}$.
+\end{solution}
+
+\begin{exercise}
+  Recall that a set $B$ is dense in $\mathbf{R}$ if an element of $B$ can be found between any two real numbers $a<b$. Which of the following sets are dense in $\mathbf{R}$ ? Take $p \in \mathbf{Z}$ and $q \in \mathbf{N}$ in every case.
+  \enum{
+  \item The set of all rational numbers $p / q$ with $q \leq 10$.
+  \item The set of all rational numbers $p / q$ with $q$ a power of 2 .
+  \item The set of all rational numbers $p / q$ with $10|p| \geq q$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Not dense.
+  \item Dense.
+  \item Not dense.
+  }
+\end{solution}
+
+\begin{exercise}
+  Finish the proof of Theorem 1.4.5 by showing that the assumption $\alpha^{2}>2$ leads to a contradiction of the fact that $\alpha=\sup T$.
+\end{exercise}
+
+\begin{solution}
+  Let $\alpha^2 >2$, where $\alpha$ is the supremum. Then $$\left( \alpha-\frac{1}{n}\right) ^2=\alpha^2-\frac{2\alpha}{n}+\frac{1}{n^2}>\alpha^2-\frac{2\alpha}{n}.$$ Choose $n_0$ large enough such that $\frac{1}{n_0}<\frac{\alpha^2-2}{2\alpha}$. This implies $\frac{2\alpha}{n_0}<\alpha^2 -2$, or $\alpha^2-\frac{2\alpha}{n_0}>2$. Therefore $$\left( \alpha -\frac{1}{n_0} \right) ^2>\alpha^2-\frac{2\alpha}{n_0}>2.$$ This is a contradiction, as we have found a value less than $\alpha$ that is an upper bound for $T$, and as such $\alpha^2$ cannot be greater than $2$. 
+\end{solution}
+
+\begin{exercise}
+  Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+  \enum{
+  \item Two sets $A$ and $B$ with $A \cap B=\emptyset, \sup A=\sup B, \sup A \notin A$ and $\sup B \notin B$.
+  \item A sequence of nested open intervals $J_{1} \supseteq J_{2} \supseteq J_{3} \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} J_{n}$ nonempty but containing only a finite number of elements.
+  \item A sequence of nested unbounded closed intervals $L_{1} \supseteq L_{2} \supseteq L_{3} \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} L_{n}=\emptyset$. (An unbounded closed interval has the form $[a, \infty)=$ $\{x \in R: x \geq a\} .)$
+  \item A sequence of closed bounded (not necessarily nested) intervals $I_{1}, I_{2}$, $I_{3}, \ldots$ with the property that $\bigcap_{n=1}^{N} I_{n} \neq \emptyset$ for all $N \in \mathbf{N}$, but $\bigcap_{n=1}^{\infty} I_{n}=\emptyset$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $(0, 2)$ on $\mathbf{Q}$ and $(0, 2)$ on $\mathbf{R} \setminus \mathbf{Q}$. 
+  \item This is impossible. Following the Nested Interval and instead using open intervals, $a_n < x < b_n$, or $(a_n, b_n)$. This has to be either empty or an infinite set.
+  \item Consider the sequence of sets $A_n=[n,+\infty)$. Then the intersection of all of these sets from $n=1$ to $n=\infty$ is the empty set.
+  \item This is impossible.
+
+  Let $I_n$ be a sequence of closed, bounded intervals that are not necessarily nested.
+  Let $A_n =\bigcap^n_{N=1} I_N$ so that $A_1 = I_1$, $A_2 = I_1\cap I_2$, \ldots
+  Note that these intervals are nested, because $A\cap B\subseteq B$. By the Nested Interval Property, $$\bigcap^\infty_{n=1} I_n =\bigcap^\infty_{n=1}\neq\emptyset,$$ which holds because $I_1\cap I_2\cap\ldots=I_1\cap (I_1\cap I_2)\cap\ldots$
+  }
+\end{solution}
