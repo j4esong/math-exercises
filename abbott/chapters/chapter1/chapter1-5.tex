@@ -1,0 +1,204 @@
+\section{Cardinality}
+
+\begin{exercise}
+  Finish the following proof for Theorem 1.5.7.
+  Assume $B$ is a countable set. Thus, there exists $f: \mathbf{N} \rightarrow B$, which is $1-1$ and onto. Let $A \subseteq B$ be an infinite subset of $B$. We must show that $A$ is countable.
+
+  Let $n_{1}=\min \{n \in \mathbf{N}: f(n) \in A\}$.
+  As a start to a definition of $g: \mathbf{N} \rightarrow A$ set $g(1)=f\left(n_{1}\right)$.
+  Show how to inductively continue this process to produce a 1-1 function $g$ from $\mathbf{N}$ onto $A$.
+\end{exercise}
+
+\begin{solution}
+  \BAD
+  Let $n_k=min\{n\in\mathbf{N}\mid f(n)\in A\}$, with $n\notin\{n_1, n_2, \ldots, n_{k-1}\}$. Then, because all elements of $A$ are in $B$, all elements of $A$ correspond to a natural number $x$ such that $g(x)=f(n_k)$, $g(x)$ is $1-1$ and onto and therefore $A$ is countable.
+\end{solution}
+
+\begin{exercise}
+  Review the proof of Theorem 1.5.6, part (ii) showing that $\mathbf{R}$ is uncountable, and then find the flaw in the following erroneous proof that $\mathbf{Q}$ is uncountable:
+
+  Assume, for contradiction, that $\mathbf{Q}$ is countable. Thus we can write $\mathbf{Q}=$ $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ and, as before, construct a nested sequence of closed intervals with $r_{n} \notin I_{n}$. Our construction implies $\bigcap_{n=1}^{\infty} I_{n}=\emptyset$ while NIP implies $\bigcap_{n=1}^{\infty} I_{n} \neq$ $\emptyset$. This contradiction implies $\mathbf{Q}$ must therefore be uncountable.
+\end{exercise}
+
+\begin{solution}
+  The Axiom of Completeness cannot be applied to rational numbers and therefore the Nested Interval Property does not hold on $\mathbf{Q}$.
+\end{solution}
+
+\begin{exercise}\label{ex:countable_union}
+  \enum{
+  \item Prove if $A_1, \dots, A_m$ are countable sets then $A_1 \cup \dots \cup A_m$ is countable.
+  \item Explain why induction \emph{cannot} be used to prove that if each $A_n$ is countable, then $\bigcup_{n=1}^\infty A_n$ is countable.
+  \item Show how arranging $\mathbf{N}$ into the two-dimensional array
+  $$\begin{array}{llllll}1 & 3 & 6 & 10 & 15 & \cdots \\ 2 & 5 & 9 & 14 & \cdots & \\ 4 & 8 & 13 & \cdots & & \\ 7 & 12 & \cdots & & & \\ 11 & \cdots & & & & \\ \vdots & & & & & \end{array}$$
+  leads to a proof for the infinite case.
+}
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item First, we prove that $A_1\cup A_2$ is countable.
+  Define $B = A_2\setminus A_1$; therefore, $A_1\cup B=A_1\cup A_2$. Now there exists bijections $f: \mathbf{N} \rightarrow A_1$ and $g:\mathbf{N}\rightarrow B$ since $B\subseteq A_2$. Construct a new function 
+  $$
+  h(n) = \begin{cases}
+    f(\frac{n+1}{2}) &\text{if } n \text{ is odd}\\
+    g(\frac{n}{2}) &\text{if } n \text{ is even}\\
+  \end{cases}
+  $$
+  This is a bijection from $\mathbf{N}$ onto $A_1\cup A_2$, which means that $A_1\cup A_2$ is countable.  
+
+  Proof by induction for the finite general case (which says that if $A_1$, $A_2$, $\ldots$, $A_m$ are countable sets, their union is countable) follows easily.
+  \item Induction does not hold for the infinite case.
+  \item Assign each set $A_m$ to row $m$ in the array. Then, to construct a bijection from $\mathbf{N}$ onto the infinite union, let $m$ be the row and $n$ be the column in which $x\in\mathbf{N}$ is located and define $h(x)=f_m (n)$. This is $1-1$ because each natural number has a unique row and column in the array, $f_m$ for all $m\in\mathbf{N}$ is $1-1$, and all the sets are disjoint (to achieve this, simply let $B_m = A_m\setminus(A_1\cup\ldots\cup A_{m-1}\cup A_{m+1}\cup\ldots)$). It is onto because all $f_m$ are onto.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show $(a, b) \sim \mathbf{R}$ for any interval $(a, b)$.
+  \item Show that an unbounded interval like $(a, \infty)=\{x: x>a\}$ has the same cardinality as $\mathbf{R}$ as well.
+  \item Using open intervals makes it more convenient to produce the required 1-1, onto functions, but it is not really necessary. Show that $[0,1) \sim(0,1)$ by exhibiting a 1-1 onto function between the two sets.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item First, we prove that $(a, b)\sim (-\frac{\pi}{2},\frac{\pi}{2})$. To do this, define the line through $(a,-\frac{\pi}{2})$ and $(b,-\frac{\pi}{2})$ as $$y+\frac{\pi}{2}=\frac{\pi}{b-a}(x-a),$$ which is clearly bijective.
+
+  Now we prove that $(-\frac{\pi}{2},\frac{\pi}{2})\sim\mathbf{R}$. This can be done with the function $\tan x$, which is also a bijection. 
+
+  Thus we have shown that $(a,b)\sim\mathbf{R}$.
+  \item This can be done with $\log (x-a)$.
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Why is $A \sim A$ for every set $A$?
+  \item Given sets $A$ and $B$, explain why $A \sim B$ is equivalent to asserting $B \sim A$.
+  \item For three sets $A, B$, and $C$, show that $A \sim B$ and $B \sim C$ implies $A \sim C$.
+    These three properties are what is meant by saying that $\sim$ is an \emph{equivalence relation}.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Every element can be mapped onto itself, which is a bijection.
+  \item In asserting $A\sim B$, two conditions are met:
+    \enumr{
+    \item every element in $A$ is mapped onto only one element in $B$ (function),
+    \item every element in $B$ is mapped onto only one element in $A$ (injection, surjection).
+    }
+    These are the same conditions that imply $B\sim A$.
+  \item If $f:A\to B$ and $g:B\to C$ are bijections, then $h=g\circ f$ is a bijection from $A$ to $C$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Give an example of a countable collection of disjoint open intervals.
+  \item Give an example of an uncountable collection of disjoint open intervals, or argue that no such collection exists.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item The intervals $(n, n+1)$ for all $n\in\mathbf{N}$. 
+  \item Such a collection does not exist.
+
+  By the density of $\mathbf{Q}$ in $\mathbf{R}$, there exists a rational in every open interval on $\mathbf{R}$. For any collection of disjoint intervals, each much contain at least one unique rational number. Choose any rational number for each interval to map onto; since $\mathbf{Q}$ countable and this new set is a subset of $\mathbf{Q}$, every collection of disjoint open intervals on $\mathbf{R}$ is countable as well.
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider the open interval $(0,1)$, and let $S$ be the set of points in the open unit square; that is, $S=\{(x, y): 0<x, y<1\}$.
+  \enum{
+  \item Find a 1-1 function that maps $(0,1)$ into, but not necessarily onto, $S$. (This is easy.)
+  \item Use the fact that every real number has a decimal expansion to produce a $1-1$ function that maps $S$ into $(0,1)$. Discuss whether the formulated function is onto. (Keep in mind that any terminating decimal expansion such as $.235$ represents the same real number as $.234999 \ldots .$)
+  }
+
+  The Schröder-Bernstein Theorem discussed in Exercise 1.5.11 can now be applied to conclude that $(0,1) \sim S$.
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $f(x)=(x,\frac{1}{2})$.
+  \item To map $S$ into $(0, 1)$, "append" the decimal expansions as follows: $$f(x, y)=x_1 y_1 x_2 y_2 x_3 y_3 \ldots$$ where $x_n$ is the $n$th digit of the decimal expansion of $x$. Note that this does not terminate for any $x$ or $y$ since every real number has an infinitely repeating decimal expansion.
+
+  This is an injection because if two distinct points $(a,b)\neq(p,q)$, then $a\neq p$ or $b\neq q$, or that one of the digits differ in $f(x, y)$. Therefore $f(a, b)\neq f(p,q)$, which implies that $f(x, y)$ is an injection.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $B$ be a set of positive real numbers with the property that adding together any finite subset of elements from $B$ always gives a sum of 2 or less. Show $B$ must be finite or countable.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  A real number $x \in \mathbf{R}$ is called algebraic if there exist integers $a_{0}, a_{1}, a_{2}, \ldots, a_{n} \in \mathbf{Z}$, not all zero, such that
+  $$
+  a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}=0
+  $$
+  Said another way, a real number is algebraic if it is the root of a polynomial with integer coefficients. Real numbers that are not algebraic are called \emph{transcendental} numbers. Reread the last paragraph of Section 1.1. The final question posed here is closely related to the question of whether or not transcendental numbers exist.
+
+  \enum{
+  \item Show that $\sqrt{2}, \sqrt[3]{2}$, and $\sqrt{3}+\sqrt{2}$ are algebraic.
+  \item Fix $n \in \mathbf{N}$, and let $A_{n}$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_{n}$ is countable.
+  \item Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+  $x^2-2=0$
+
+  $x^3-2=0$
+
+  $x^4-10x^2+1=0$
+  \item
+  Fix $n\in\mathbf{N}$. Then every polynomial of degree $n$ has the form $$a_n x_n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0.$$ Now $a\in\mathbf{Z}^{n+1}$, the set of all combinations of integer coefficients, is countable; it is the finite union of countable sets. Similarly, since each combination of integer coefficients corresponds to a finite number of roots, the set of the roots of all such polynomials $A_n$ is countable because it is the countable union of finite sets. 
+  \item Since all the sets $A_n$ are countable, their infinite union is also countable.
+
+  If the irrationals are the union of the algebraic and transcendental numbers, we know that the transcendental numbers must be uncountable.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $C \subseteq[0,1]$ be uncountable. Show that there exists $a \in(0,1)$ such that $C \cap[a, 1]$ is uncountable.
+  \item Now let $A$ be the set of all $a \in(0,1)$ such that $C \cap[a, 1]$ is uncountable, and set $\alpha=\sup A$. Is $C \cap[\alpha, 1]$ an uncountable set?
+  \item Does the statement in (a) remain true if ``uncountable'' is replaced by ``infinite''?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Assume, for contradiction, that $C\cap[a, 1]$ is countable for all $a\in(0, 1)$. Now $(C\cap[a,1])\cup(C\cap[0,a])=C$. 
+  }
+\end{solution}
+
+\begin{exercise}[Schröder-Bernstein Theorem]
+  Assume there exists a 1-1 function $f: X \rightarrow Y$ and another 1-1 function $g: Y \rightarrow X .$ Follow the steps to show that there exists a 1-1, onto function $h: X \rightarrow Y$ and hence $X \sim Y$.
+  The strategy is to partition $X$ and $Y$ into components
+  $$
+  X=A \cup A^{\prime} \quad \text { and } \quad Y=B \cup B^{\prime}
+  $$
+  with $A \cap A^{\prime}=\emptyset$ and $B \cap B^{\prime}=\emptyset$, in such a way that $f$ maps $A$ onto $B$, and $g$ maps $B^{\prime}$ onto $A^{\prime}$.
+
+  \enum{
+  \item Explain how achieving this would lead to a proof that $X \sim Y$.
+  \item Set $A_{1}=X \setminus g(Y)=\{x \in X: x \notin g(Y)\}$ (what happens if $\left.A_{1}=\emptyset ?\right)$ and inductively define a sequence of sets by letting $A_{n+1}=g\left(f\left(A_{n}\right)\right)$. Show that $\left\{A_{n}: n \in \mathbf{N}\right\}$ is a pairwise disjoint collection of subsets of $X$, while $\left\{f\left(A_{n}\right): n \in \mathbf{N}\right\}$ is a similar collection in $Y$.
+  \item Let $A=\bigcup_{n=1}^{\infty} A_{n}$ and $B=\bigcup_{n=1}^{\infty} f\left(A_{n}\right)$. Show that $f$ maps $A$ onto $B$.
+  \item Let $A^{\prime}=X \setminus A$ and $B^{\prime}=Y \setminus B$. Show $g$ maps $B^{\prime}$ onto $A^{\prime}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  
+  }
+\end{solution}
