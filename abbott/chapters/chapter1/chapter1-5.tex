@@ -177,7 +177,10 @@
 
 \begin{solution}
   \enum{
-  \item Assume, for contradiction, that $C\cap[a, 1]$ is countable for all $a\in(0, 1)$. Now $(C\cap[a,1])\cup(C\cap[0,a])=C$. 
+  \REPLACE
+  \item Assume, for contradiction, that $C\cap[a, 1]$ is countable for all $a\in(0, 1)$. Now $$C=\bigcup^{\infty}_{n=1} C\cap[\frac{1}{n}, 1] = C\cap[0,1]$$ is a countable union of countable sets, which implies that $C$ is countable. However, this cannot be possible because $C$ is uncountable.
+  \item \TODO
+  \item No. Consider the set $S = {1/2^n \mid n\in\mathbf{N}}$. For all $c\in[0,1]$, $S\cap[c, 1]$ is finite.
   }
 \end{solution}
 
@@ -199,6 +202,7 @@
 
 \begin{solution}
   \enum{
-  
+  \item If $f:A\to B$ is onto and $g:B^\prime\to A^\prime$ is onto, then $A\cup A^\prime$ is onto $B\cup B^\prime$. Since both functions are also $1-1$, there exists a bijection from $X$ onto $Y$.
+  \item $A_1 = X\setminus g(Y)$ is all of $X$ that is not mapped onto by $Y$. If $A_1=\emptyset$, then $g$ is a surjection and $X\sim Y$ is already proven. Now $A_{n+1}=g(f(A_n))$. $A_1$ and $A_2$ are disjoint because $A_2$ is mapped onto by $Y$, and \TODO
   }
 \end{solution}
