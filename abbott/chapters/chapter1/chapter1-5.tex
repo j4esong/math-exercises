@@ -11,7 +11,7 @@
 
 \begin{solution}
   \BAD
-  Let $n_k=min\{n\in\mathbf{N}\mid f(n)\in A\}$, with $n\notin\{n_1, n_2, \ldots, n_{k-1}\}$. Then, because all elements of $A$ are in $B$, all elements of $A$ correspond to a natural number $x$ such that $g(x)=f(n_k)$, $g(x)$ is $1-1$ and onto and therefore $A$ is countable.
+  Let $n_k=\min\{n\in\mathbf{N}\mid f(n)\in A\}$, with $n\notin\{n_1, n_2, \ldots, n_{k-1}\}$. Then, because all elements of $A$ are in $B$, all elements of $A$ correspond to a natural number $x$ such that $g(x)=f(n_k)$, $g(x)$ is $1-1$ and onto and therefore $A$ is countable.
 \end{solution}
 
 \begin{exercise}
@@ -47,7 +47,7 @@
   This is a bijection from $\mathbf{N}$ onto $A_1\cup A_2$, which means that $A_1\cup A_2$ is countable.  
 
   Proof by induction for the finite general case (which says that if $A_1$, $A_2$, $\ldots$, $A_m$ are countable sets, their union is countable) follows easily.
-  \item Induction does not hold for the infinite case.
+  \item In general, induction is not a valid argument for the infinite case. 
   \item Assign each set $A_m$ to row $m$ in the array. Then, to construct a bijection from $\mathbf{N}$ onto the infinite union, let $m$ be the row and $n$ be the column in which $x\in\mathbf{N}$ is located and define $h(x)=f_m (n)$. This is $1-1$ because each natural number has a unique row and column in the array, $f_m$ for all $m\in\mathbf{N}$ is $1-1$, and all the sets are disjoint (to achieve this, simply let $B_m = A_m\setminus(A_1\cup\ldots\cup A_{m-1}\cup A_{m+1}\cup\ldots)$). It is onto because all $f_m$ are onto.
   }
 \end{solution}
@@ -68,7 +68,14 @@
 
   Thus we have shown that $(a,b)\sim\mathbf{R}$.
   \item This can be done with $\log (x-a)$.
-  \item \TODO
+  \item Construct a new function 
+  $$
+  f(x) = \begin{cases}
+    \frac{n+1}{n+2} &\text{if } x \text{ can be expressed as } \frac{n}{n+1} \text{ where } n\in\mathbf{N}\\
+    x &\text{otherwise}\\
+  \end{cases}
+  $$
+  This is a bijection from $[0,1)$ to $(0,1)$.
   }
 \end{solution}
 
@@ -134,7 +141,7 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $B_a = \{b\in B \mid b\geq a\}$. Notice that this set is finite for any $a>0$, since if it was infinite, we could easily construct a subset of $B$ that sums to greater than $2$. Now it can shown with the Archimedean property that $$B=\bigcup^\infty_{n=1} B\cap[1/n, 2],$$ and because this is the countable union of finite sets, $B$ must be countable as well.
 \end{solution}
 
 \begin{exercise}
@@ -177,10 +184,9 @@
 
 \begin{solution}
   \enum{
-  \REPLACE
-  \item Assume, for contradiction, that $C\cap[a, 1]$ is countable for all $a\in(0, 1)$. Now $$C=\bigcup^{\infty}_{n=1} C\cap[\frac{1}{n}, 1] = C\cap[0,1]$$ is a countable union of countable sets, which implies that $C$ is countable. However, this cannot be possible because $C$ is uncountable.
-  \item \TODO
-  \item No. Consider the set $S = {1/2^n \mid n\in\mathbf{N}}$. For all $c\in[0,1]$, $S\cap[c, 1]$ is finite.
+  \item Assume, for contradiction, that $C\cap[a, 1]$ is countable for all $a\in(0, 1)$. Now $$C=\bigcup^{\infty}_{n=1} C\cap\left[\frac{1}{n}, 1\right] = C\cap[0,1]$$ is a countable union of countable sets, which implies that $C$ is countable. However, this cannot be possible because $C$ is uncountable.
+  \item A similar argument to (a) using $$\bigcup^\infty_{n=1} C\cap\left[\alpha + \frac{1}{n}, 1\right]$$ shows that $C\cap[\alpha, 1]$ is countable.
+  \item No. Consider the set $S = \{1/2^n \mid n\in\mathbf{N}\}$. For all $c\in[0,1]$, $S\cap[c, 1]$ is finite.
   }
 \end{solution}
 
