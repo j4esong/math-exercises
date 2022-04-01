@@ -1,0 +1,141 @@
+\section{Cantor's theorem}
+
+\begin{exercise}
+  Show that $(0,1)$ is uncountable if and only if $\mathbf{R}$ is uncountable.
+\end{exercise}
+
+\begin{solution}
+  $$f(x)=\tan{\left(y+\frac{\pi}{2}=\pi x \right)}$$ gives a bijection from $(0, 1)$ to $\mathbf{R}$. 
+\end{solution}
+
+\begin{exercise}
+  Let $f : \mathbf{N} \to \mathbf{R}$ be a way to list every real number (hence show $\mathbf R$ is countable).
+
+  Define a new number $x$ with digits $b_1b_2\ldots$ given by
+  $$
+  b_{n}= \begin{cases}2 & \text { if } a_{n n} \neq 2 \\ 3 & \text { if } a_{n n}=2\end{cases}
+  $$
+
+  \enum{
+  \item Explain why the real number $x=. b_{1} b_{2} b_{3} b_{4} \ldots$ cannot be $f(1)$.
+  \item Now, explain why $x \neq f(2)$, and in general why $x \neq f(n)$ for any $n \in \mathbf{N}$.
+  \item Point out the contradiction that arises from these observations and conclude that $(0,1)$ is uncountable.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $a_11\neq b_1$.
+  \item $a_nn\neq b_n$.
+  \item We have found a new number in $(0, 1)$; however, this contradicts our assumption that every real number was in our table and corresponded to a natural number.
+  }
+\end{solution}
+
+\begin{exercise}
+  Supply rebuttals to the following complaints about the proof of Theorem 1.6.1.
+  \enum{
+  \item Every rational number has a decimal expansion, so we could apply this same argument to show that the set of rational numbers between 0 and 1 is uncountable. However, because we know that any subset of $\mathbf{Q}$ must be countable, the proof of Theorem 1.6.1 must be flawed.
+  \item Some numbers have two different decimal representations. Specifically, any decimal expansion that terminates can also be written with repeating 9's. For instance, $1 / 2$ can be written as $.5$ or as $.4999 \ldots$ Doesn't this cause some problems?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Every rational number having a decimal expansion does not imply every decimal expansion having a rational representation. In fact, because the constructed number has no repeating decimal pattern, it will not be in the set of rational numbers and $\mathbf{Q}$ remains countable.
+  \item If we always assume the infinite representation, numbers with terminating decimal expansions are no different from any other real number.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $S$ be the set consisting of all sequences of 0 's and 1 's. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely,
+  $$
+  S=\left\{\left(a_{1}, a_{2}, a_{3}, \ldots\right): a_{n}=0 \text { or } 1\right\}
+  $$
+  As an example, the sequence $(1,0,1,0,1,0,1,0, \ldots)$ is an element of $S$, as is the sequence $(1,1,1,1,1,1, \ldots)$.
+  Give a rigorous argument showing that $S$ is uncountable.
+\end{exercise}
+
+\begin{solution}
+  Organize all the sequences in a table indexed by $n\in\mathbf{N}$. Then for $a_nn$, the $n$th number of the $n$th sequence, add the opposite to our new sequence. This is a new sequence in $S$ that does not have an index.
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $A=\{a, b, c\}$. List the eight elements of $P(A)$. (Do not forget that $\emptyset$ is considered to be a subset of every set.)
+  \item If $A$ is finite with $n$ elements, show that $P(A)$ has $2^{n}$ elements.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+  $\emptyset$
+
+  ${a}$, ${b}$, ${c}$
+
+  ${a, b}$, ${b, c}$, ${a, c}$
+
+  ${a, b, c}$
+  \item
+  When constructing a subset, we have two options for each element: include it or leave it out, which corresponds to $2^n$ ways to construct a subset from a set of size $n$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Using the particular set $A=\{a, b, c\}$, exhibit two different $1-1$ mappings from $A$ into $P(A)$.
+  \item Letting $C=\{1,2,3,4\}$, produce an example of a $1-1$ map $g: C \rightarrow P(C)$.
+  \item Explain why, in parts (a) and (b), it is impossible to construct mappings that are onto.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $f(x) = {x}$, $f(x)={x, y}$ where $y$ is the next element in the set.
+  \item $f(x) = {x}$.
+  \item Because the $P(A)$ has more elements than $A$ for the examples.
+  }
+\end{solution}
+
+\begin{exercise}
+  \SKIP
+\end{exercise}
+
+\begin{exercise}
+  \enum{
+  \item First, show that the case $a^\prime\in B$ leads to a contradiction.
+  \item Now, finish the argument by showing that the case $a^\prime\notin B$ is equally unacceptable.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $a^\prime\in B$ does not work, because $f(a^\prime)=B$, and by definition we would have constructed $B$ to not include $a^\prime$ if that were the case.
+  \item $a^\prime\notin B$ does not work, because then we would have constructed $B$ to include $a^\prime$. 
+  }
+\end{solution}
+
+\begin{exercise}
+  Using the various tools and techniques developed in the last two sections (including the exercises from Section 1.5), give a compelling argument showing that $P(\mathbf{N}) \sim \mathbf{R}$.
+\end{exercise}
+
+\begin{solution}
+  To show that $P(\mathbf{N})\sim \mathbf{R}$, first consider $(0, 1)\sim \mathbf{R}$. Note that our choice of base 10 is arbitrary; we can just as easily represent decimal expansions in binary. The bijection is constructed as follows: if the $n$th digit of the binary expansion of real number $x$ is $1$, then include $n$; if not, do not include $n$. This is an injection from $\mathbf{R}$ to $P(\mathbf{N})$ because if $a\neq b$, then there is an $n\in\mathbf{N}$ such that $a_n\neq b_n$. Therefore $f(a)\neq f(b)$, as only one of them includes $n$. It is onto because all subsets of $\mathbf{N}$ can be generated by determining which elements to leave out.
+\end{solution}
+
+\begin{exercise}
+  As a final exercise, answer each of the following by establishing a $1-1$ correspondence with a set of known cardinality.
+  \enum{
+  \item Is the set of all functions from $\{0,1\}$ to $\mathbf{N}$ countable or uncountable?
+  \item Is the set of all functions from $\mathbf{N}$ to $\{0,1\}$ countable or uncountable?
+  \item Given a set $B$, a subset $\mathcal{A}$ of $P(B)$ is called an antichain if no element of $\mathcal{A}$ is a subset of any other element of $\mathcal{A} .$ Does $P(\mathbf{N})$ contain an uncountable antichain?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item This is the same as $\mathbf{N^2}$, which is countable.
+  \item This is the same proof from 1.6.4. It is uncountable.
+  \item Yes. For example, construct an antichain $A$ containing all subsets $A_k \subseteq \mathbf{N}$ such $A_k$ contains either $2n$ or $2n-1$ but not both for any $n\in\mathbf{N}$. This is equivalent to the set of infinite sequences of $0$s and $1$s, with $0$ denoting the even number picked and $1$ denoting the odd number picked for each $n$; however, this set known to be uncountable, so $A$ must also be uncountable.
+  }
+\end{solution}
