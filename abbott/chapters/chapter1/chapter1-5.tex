@@ -209,6 +209,15 @@
 \begin{solution}
   \enum{
   \item If $f:A\to B$ is onto and $g:B^\prime\to A^\prime$ is onto, then $A\cup A^\prime$ is onto $B\cup B^\prime$. Since both functions are also $1-1$, there exists a bijection from $X$ onto $Y$.
-  \item $A_1 = X\setminus g(Y)$ is all of $X$ that is not mapped onto by $Y$. If $A_1=\emptyset$, then $g$ is a surjection and $X\sim Y$ is already proven. Now $A_{n+1}=g(f(A_n))$. $A_1$ and $A_2$ are disjoint because $A_2$ is mapped onto by $Y$, and \TODO
+  \item 
+  \BAD
+  $A_1 = X\setminus g(Y)$ is all of $X$ that is not mapped onto by $Y$ (if $A_1=\emptyset$, then $g$ is a surjection and $X\sim Y$ is already proven). We use strong induction to prove that $A_n$ and $f(A_n)$ for all $n\in\mathbf{N}$ are pairwise disjoint sequences of sets.
+
+  For the base cases, $A_1$ and $A_2$ are disjoint because $A_1$ is not mapped onto by $g$, whereas $A_2$ is mapped onto by $g$ and $g$ is $1-1$. $f(A_1)$ and $f(A_2)$ are also disjoint because $f$ is $1-1$.
+
+  Now assume that $A_n$ is pairwise disjoint with $A_1\ldots A_{n-1}$ and $f(A_n)$ is pairwise disjoint with $f(A_1)\ldots f(A_{n-1})$. $A_{n+1}=g(f(A_n))$ is pairwise disjoint with $g(f(A_1))\ldots g(f(A_{n-1}))$ (or $A_2\ldots A_n$) because $g$ is $1-1$ and $f(A_1)$ to $f(A_{n-1})$ are all disjoint; it is disjoint with $A_1$ because $g$ is $1-1$ and $g$ does not map any of $Y$ onto $A_1$. It follows easily that $f(A_{n+1})$ is pairwise disjoint with $f(A_{1})\ldots f(A_{n})$ because $f$ is $1-1$. 
+
+  \item $B$ is the range of $A$, so $f:A\to B$ is onto. That is, any element $y\in B$ belongs to $f(A_n)$ for some $n\in\mathbf{N}$, and $f$ maps some element $x\in A_n$ to $y$.
+  \item Suppose that $x\in X$ is not in $A$. That means that it is mapped onto by $Y$ through $g$ (it is not in $A_1=X\setminus g(Y)$). Now, we know that $g^\prime(x)$ exists; call it $y$. Then $y$ cannot be in $f(A_n)$ for $n\in\mathbf{N}$, since if it were, $x$ would be in $A_{n+1}$ and therefore $A$. Thus $y$ must be in $B^\prime$, and we have demonstrated that $g:B^\prime\to A^\prime$ is a surjection.
   }
 \end{solution}
