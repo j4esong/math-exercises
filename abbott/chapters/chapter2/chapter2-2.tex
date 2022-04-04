@@ -1,0 +1,164 @@
+\section{The Limit of a Sequence}
+
+\begin{exercise}
+What happens if we reverse the order of the quantifiers in Definition 2.2.3?
+
+Definition: A sequence $\left(x_{n}\right)$ \emph{verconges} to $x$ if \emph{there exists} an $\epsilon>0$ such that \emph{for all} $N \in \mathbf{N}$ it is true that $n \geq N$ implies $\left|x_{n}-x\right|<\epsilon$.
+
+Give an example of a vercongent sequence. Is there an example of a vercongent sequence that is divergent? Can a sequence verconge to two different values? What exactly is being described in this strange definition?
+\end{exercise}
+
+\begin{solution}
+  A vercongent sequence is just any sequence that is bounded. A vercongent sequence can be divergent; one example would be $a_n = (-1)^n$. It is easily possible for a sequence to verconge to two different values, given that $\epsilon$ is chosen to be sufficiently large.
+\end{solution}
+
+\begin{exercise}
+  Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+  \enum{
+  \item $\lim \frac{2 n+1}{5 n+4}=\frac{2}{5}$.
+  \item $\lim \frac{2 n^{2}}{n^{3}+3}=0$.
+  \item $\lim \frac{\sin \left(n^{2}\right)}{\sqrt[3]{n}}=0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $\epsilon>0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{3}{25\epsilon} - \frac{4}{5}.$$ To verify that this choice is appopriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then 
+
+  $n > \frac{3}{25\epsilon} - \frac{4}{5}$
+
+  $\implies \epsilon > \frac{\frac{3}{5}}{5n+4}$
+
+  $\implies\epsilon > \left|\frac{\frac{3}{5}}{5n+4}\right|$
+
+  $\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2n+\frac{8}{5}}{5n+4}\right|$
+
+  $\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2}{5}\right|$
+
+  \item
+  Let $\epsilon > 0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{2}{\epsilon}.$$ To verify that this choice of $N$ is appropriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then
+
+  $n > \frac{2}{\epsilon}$
+
+  $\implies \frac{\epsilon}{2} > \frac{n^2}{n^3} > \frac{n^2}{n^3+3}$
+
+  $\implies \epsilon >\left|\frac{2n^2}{n^3+3}\right|$
+
+  \item
+  Let $\epsilon > 0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{1}{\epsilon^3}.$$ To verify that this choice of $N$ is appropriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then 
+
+  $n >\frac{1}{\epsilon^3}$
+
+  $\implies \epsilon>\frac{1}{\sqrt[3]{n}} > \left|\frac{\sin{n^2}}{\sqrt[3]{n}}\right|$
+  }
+\end{solution}
+
+\begin{exercise}
+  Describe what we would have to demonstrate in order to disprove each of the following statements.
+  \enum{
+  \item At every college in the United States, there is a student who is at least seven feet tall.
+  \item For all colleges in the United States, there exists a professor who gives every student a grade of either $\mathrm{A}$ or $\mathrm{B}$.
+  \item There exists a college in the United States where every student is at least six feet tall.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item There exists one college in the United States where every student is less than seven feet tall.
+  \item There exists one college in the United States where every professor gave at least one student a C or below.
+  \item For every college in the United States, there is at least one student who is less than six feet tall.
+  }
+\end{solution}
+
+\begin{exercise}
+  Give an example of each or state that the request is impossible. For any that are impossible, give a compelling argument for why that is the case.
+  \enum{
+  \item A sequence with an infinite number of ones that does not converge to one.
+  \item A sequence with an infinite number of ones that converges to a limit not equal to one.
+  \item A divergent sequence such that for every $n \in \mathbf{N}$ it is possible to find $n$ consecutive ones somewhere in the sequence.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $a_n = (-1)^n$.
+  \item Assume a sequence of infinite ones has limit $b\neq 1$. If we choose $\epsilon < |b-1|$, then $|a_n - b| < |b-1|$. Since $a$ has infinite ones, regardless of how $N\in\mathbf{N}$ is chosen, $a_n=1$ for some $n\geq N$. However, this implies $|1-b|<|b-1|$, which is clearly a contradiction. Therefore there cannot be a sequence with infinite ones that does not either diverge or converge to $1$ itself.
+  \item $1,0,1,1,0,1,1,1,0,1,1,1,1,\ldots$
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $[[x]]$ be the greatest integer less than or equal to $x$. For example, $[[\pi]]=3$ and $[[3]]=3$. For each sequence, find $\lim a_{n}$ and verify it with the definition of convergence.
+  \enum{
+  \item $a_{n}=[[5 / n]]$,
+  \item $a_{n}=[[(12+4 n) / 3 n]]$.
+  }
+  Reflecting on these examples, comment on the statement following Definition 2.2.3 that ``the smaller the $\epsilon$-neighborhood, the larger $N$ may have to be.''
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Choose $n>5$. Then $\left|\left[\left[\frac{5}{n}\right]\right]\right|$ always evaluates to $0$.
+  \item Choose $n>6$. Then $\left|\left[\left[\frac{12+4n}{3n}\right]\right]\right|$ always evaluates to $1$.
+  }
+  This statement is only true if the sequence converges gradually. In some cases, sequences can "jump" to their limit.
+\end{solution}
+
+\begin{exercise}
+  \textbf{Theorem 2.2.7 (Uniqueness of Limits).} \textit{The limit of a sequence, when it exists, must be unique.}
+
+  Prove Theorem 2.2.7. To get started, assume $\left(a_{n}\right) \rightarrow a$ and also that $\left(a_{n}\right) \rightarrow b$. Now argue $a=b$.
+\end{exercise}
+
+\begin{solution}
+  Assume, for contradiction, that $a\neq b$. Let $a > b$, without loss of generality. Then $|a-b|=a-b>0$. By definition, there exists $N_a$, $N_b\in\mathbf{N}$ such that $$|a_n-b|<\epsilon \text{ for all } n\geq N_b,$$ $$|a_n-a|<\epsilon \text{ for all } n\geq N_a.$$ These two conditions are simultaneously true for $n\geq N$, where $N=\max(N_a, N_b)$. Now set $\epsilon<\frac{a-b}{2}$. This implies $$b-\frac{a-b}{2}<a_n<b+\frac{a-b}{2}\implies b-\frac{a-b}{2}<a_n<\frac{a+b}{2}$$ $$a-\frac{a-b}{2}<a_n<a+\frac{a-b}{2}\implies \frac{a+b}{2}<a_n<a+\frac{a-b}{2}$$ However, this is impossible, as $a_n$ cannot be greater than $\frac{a+b}{2}$ and less than $\frac{a+b}{2}$ at the same time.
+\end{solution}
+
+\begin{exercise}
+  Here are two useful definitions:
+  \enumr{
+  \item A sequence $\left(a_{n}\right)$ is \emph{eventually} in a set $A \subseteq \mathbf{R}$ if there exists an $N \in \mathbf{N}$ such that $a_{n} \in A$ for all $n \geq N$.
+  \item A sequence $\left(a_{n}\right)$ is \emph{frequently} in a set $A \subseteq \mathbf{R}$ if, for every $N \in \mathbf{N}$, there exists an $n \geq N$ such that $a_{n} \in A$.
+    \enum{
+    \item Is the sequence $(-1)^{n}$ eventually or frequently in the set $\{1\}$?
+    \item Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+    \item Give an alternate rephrasing of Definition 2.2.3B using either frequently or eventually. Which is the term we want?
+    \item Suppose an infinite number of terms of a sequence $\left(x_{n}\right)$ are equal to 2 . Is $\left(x_{n}\right)$ necessarily eventually in the interval $(1.9,2.1) ?$ Is it frequently in $(1.9,2.1) ?$
+    }
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Frequently.
+  \item Eventually implies frequently, so eventually is the stronger statement.
+  \item Given any $\epsilon$-neighborhood, $a_n$ is eventually in that neighborhood.
+  \item $(x_n)$ is not necessarily eventually in $(1.9, 2.1)$, but it is frequently in $(1.9, 2.1)$.
+  }
+\end{solution}
+
+\begin{exercise}
+  For some additional practice with nested quantifiers, consider the following invented definition:
+
+  Let's call a sequence $\left(x_{n}\right)$ zero-heavy if there exists $M \in \mathbf{N}$ such that for all $N \in \mathbf{N}$ there exists $n$ satisfying $N \leq n \leq N+M$ where $x_{n}=0$.
+  \enum{
+  \item Is the sequence $(0,1,0,1,0,1, \ldots)$ zero heavy?
+  \item If a sequence is zero-heavy does it necessarily contain an infinite number of zeros? If not, provide a counterexample.
+  \item If a sequence contains an infinite number of zeros, is it necessarily zeroheavy? If not, provide a counterexample.
+  \item Form the logical negation of the above definition. That is, complete the sentence: A sequence is not zero-heavy if ....
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Yes.
+  \item Yes. Fix $M\in\mathbf{N}$ and consider the intervals $N=0, N=M+1, N=2M+2\ldots$
+
+  These all identify unique instances of zero in the sequence because they are disjoint. Since there are an infinite number of these instances, there must also be an infinite number of zeroes.
+  \item No. Consider the sequence $0, 1, 0, 1, 1, 0, 1, 1, 1, \ldots$
+
+  Regardless of how $M$ is chosen, there will be an $M$-long sequence of $1$s in the sequence, which means that it is not zero-heavy, even though it has an infinite number of zeroes.
+
+  \item A sequence is not zero-heavy if for all $M\in\mathbf{N}$, there exists $N\in\mathbf{N}$ such that for all $n$ satisfying $N\leq n\leq N+M$, $x_n\neq 0$.
+  }
+\end{solution}
