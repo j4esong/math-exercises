@@ -84,8 +84,8 @@
   $$
   \begin{aligned}
   \lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right)
-  &= \lim \left( \frac{a_n^2+4a_n}{a_n} \right)
-  &= \lim \left( a_n + 4 \right)
+  &= \lim \left( \frac{a_n^2+4a_n}{a_n} \right) \\
+  &= \lim \left( a_n + 4 \right) \\
   &= 4
   \end{aligned}
   $$
@@ -93,9 +93,9 @@
   \item
   $$
   \begin{aligned}
-  \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right)
-  &= \lim \left( \frac{2+3a_n}{1+5a_n} \right)
-  &= \frac{2+3 \lim a_n}{1+5\lim a_n}
+  \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right) 
+  &= \lim \left( \frac{2+3a_n}{1+5a_n} \right) \\
+  &= \frac{2+3 \lim a_n}{1+5\lim a_n} \\
   &= 2
   \end{aligned}
   $$
@@ -107,9 +107,9 @@
 \end{exercise}
 
 \begin{solution}
-  First we prove the forward direction. Let $\lim x_n = \lim y_n = l$, and fix $\epsilon>0$. Then there exists an $N_0\in\mathbf{N}$ such that $|x_n - l| <\epsilon$ and $|y_n-l|<\epsilon$ for all $n\geq N_0$. Letting $N=2N_0-1$, however, leaves us with the tail $(x_n, y_n, x_{n+1}, y_{n+1}, \ldots)$, which clearly satisfies $|z_n-l|<\epsilon$.
-
-  For the backward direction, fix $\epsilon$. Since $|z_n - l| <\epsilon$ for all $n\geq N$, then $|x_n - l| <\epsilon$ and $|y_n-l|<\epsilon$ for all $n \geq \frac{N}{2} + 1$.
+  First we prove the forward direction. Let $\lim x_n = \lim y_n = l$, and fix $\epsilon>0$. Then there exists an $N_0\in\mathbf{N}$ such that $|x_n - l| <\epsilon$ and $|y_n-l|<\epsilon$ for all $n\geq N_0$. Setting $N=2N_0-1$, however, leaves us with the tail $(x_n, y_n, x_{n+1}, y_{n+1}, \ldots)$, which clearly satisfies $|z_n-l|<\epsilon$.
+  \par
+  For the backward direction, fix $\epsilon$. Since $|z_n - l| <\epsilon$ for all $n\geq N$, $|x_n - l| <\epsilon$ and $|y_n-l|<\epsilon$ for all $n \geq \frac{N}{2} + 1$.
 \end{solution}
 
 \begin{exercise}
@@ -117,7 +117,23 @@
 \end{exercise}
 
 \begin{solution}
-
+\BAD
+$$
+\begin{aligned}
+b_n
+&= n-\sqrt{n^2-2n} \\
+&= \sqrt{n^2} - \sqrt{n^2-2n} \\
+&= \frac{2n}{\sqrt{n^2}+\sqrt{n^2-2n}} \\
+&= \frac{2}{1+\sqrt{1-\frac{2}{n}}}
+\\
+\lim b_n
+&= \frac{2}{\lim{1+\sqrt{1-\frac{2}{n}}}} \\
+&= \frac{2}{1+\lim\left(\sqrt{1-\frac{2}{n}}\right)} \\
+&= \frac{2}{1+\sqrt{\lim \left( 1-\frac{2}{n} \right)}} \\
+&= \frac{2}{1+1} \\
+&= 1
+\end{aligned}
+$$
 \end{solution}
 
 \begin{exercise}
@@ -132,7 +148,13 @@
 \end{exercise}
 
 \begin{solution}
-
+  \enum{
+  \item $a_n = (-1)^n$ and $b_n = (-1)^{n+1}$.
+  \item This is impossible. $\lim(x_n + y_n) = x + y$, and if $x_n + y_n$ and $x_n$ converge, then $y_n$ must have a limit as well.
+  \item $b_n = 1/n$. Here, $1/b_n = n$, which diverges.
+  \item There exist $M_0$ and $M_1$ such that $|b_n|<M_0$ and $|a_n-b_n|<M_1$. Therefore $|a_n-b_n|+|b_n|<M_0+M_1$, and by the triangle inequality, $$|a_n-b_n+b_n|<|a_n+b_n|+|b_n|<M_0+M_1$$ Thus $a_n$ is bounded by $M_0+M_1$, and an unbounded sequence that meets the criteria is impossible.
+  \item $a_n=0$ and $b_n=(-1)^n$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -144,7 +166,20 @@
 \end{exercise}
 
 \begin{solution}
-  
+  \enum{
+  \item
+  Every polynomial has the form $p(x) = a_k x_n^k + \ldots + a_0$. 
+  $$
+  \begin{aligned}
+  \lim p(x_n)
+  &= \lim a_k x_n^k +\ldots +\lim a_0 \\
+  &= a_k \lim x_n^k + \ldots + \lim a_0 \\
+  &= a_k x^k + \ldots + a_0 \\
+  &= p(x)
+  \end{aligned}
+  $$
+  \item $x_n = 1/n$, and let $f(x)$ be a function where if $x\neq 0$, $f(x)=2$ and $f(x)=3$ otherwise. Then $(x_n)\to 0$, $f(0)=3$,  but $f(x_n)$ really converges to $2$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -156,7 +191,17 @@
 \end{exercise}
 
 \begin{solution}
+  \enum{
+  \item 
+  We aren't allowed to use the Algebraic Limit Theorem because it assumes that $a_n$ and $b_n$ converge.
 
+  Given that $|a_n|<M$ and $(b_n)\to 0$, then $|a_n b_n| < M|b_n| < M\epsilon$.
+
+  \item 
+  We can say that $a_n b_n$ is bounded, but we can't say anything about its convergence.
+  \item 
+  Convergent sequences are also bounded, so $b_n$ satisfies the conditions in part (a).
+  }
 \end{solution}
 
 \begin{exercise}
