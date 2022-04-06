@@ -25,31 +25,31 @@ Give an example of a vercongent sequence. Is there an example of a vercongent se
   \enum{
   \item Let $\epsilon>0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{3}{25\epsilon} - \frac{4}{5}.$$ To verify that this choice is appopriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then 
 
-  $n > \frac{3}{25\epsilon} - \frac{4}{5}$
-
-  $\implies \epsilon > \frac{\frac{3}{5}}{5n+4}$
-
-  $\implies\epsilon > \left|\frac{\frac{3}{5}}{5n+4}\right|$
-
-  $\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2n+\frac{8}{5}}{5n+4}\right|$
-
-  $\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2}{5}\right|$
+  $$
+  \begin{aligned}
+  n > \frac{3}{25\epsilon} - \frac{4}{5}
+  &\implies \epsilon > \frac{\frac{3}{5}}{5n+4} \\
+  &\implies\epsilon > \left|\frac{\frac{3}{5}}{5n+4}\right| \\
+  &\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2n+\frac{8}{5}}{5n+4}\right| \\
+  &\implies\epsilon > \left|\frac{2n+1}{5n+4}-\frac{2}{5}\right|
+  \end{aligned}
+  $$
 
   \item
   Let $\epsilon > 0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{2}{\epsilon}.$$ To verify that this choice of $N$ is appropriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then
 
-  $n > \frac{2}{\epsilon}$
-
-  $\implies \frac{\epsilon}{2} > \frac{n^2}{n^3} > \frac{n^2}{n^3+3}$
-
-  $\implies \epsilon >\left|\frac{2n^2}{n^3+3}\right|$
+  $$
+  \begin{aligned}
+  n > \frac{2}{\epsilon}
+  &\implies \frac{\epsilon}{2} > \frac{n^2}{n^3} > \frac{n^2}{n^3+3} \\
+  &\implies \epsilon >\left|\frac{2n^2}{n^3+3}\right|
+  \end{aligned}
+  $$
 
   \item
   Let $\epsilon > 0$ be arbitrary. Choose $N\in\mathbf{N}$ with $$N > \frac{1}{\epsilon^3}.$$ To verify that this choice of $N$ is appropriate, let $n\in\mathbf{N}$ satisfy $n\geq N$. Then 
 
-  $n >\frac{1}{\epsilon^3}$
-
-  $\implies \epsilon>\frac{1}{\sqrt[3]{n}} > \left|\frac{\sin{n^2}}{\sqrt[3]{n}}\right|$
+  $$n >\frac{1}{\epsilon^3} \implies \epsilon>\frac{1}{\sqrt[3]{n}} > \left|\frac{\sin{n^2}}{\sqrt[3]{n}}\right|$$
   }
 \end{solution}
 
@@ -82,7 +82,7 @@ Give an example of a vercongent sequence. Is there an example of a vercongent se
 \begin{solution}
   \enum{
   \item $a_n = (-1)^n$.
-  \item Assume a sequence of infinite ones has limit $b\neq 1$. If we choose $\epsilon < |b-1|$, then $|a_n - b| < |b-1|$. Since $a$ has infinite ones, regardless of how $N\in\mathbf{N}$ is chosen, $a_n=1$ for some $n\geq N$. However, this implies $|1-b|<|b-1|$, which is clearly a contradiction. Therefore there cannot be a sequence with infinite ones that does not either diverge or converge to $1$ itself.
+  \item Assume a sequence with infinite ones has limit $b\neq 1$. If we choose $\epsilon < |b-1|$, then $|a_n - b| < |b-1|$. Since $a$ has infinite ones, regardless of how $N\in\mathbf{N}$ is chosen, $a_n=1$ for some $n\geq N$. However, this implies $|1-b|<|b-1|$, which is clearly a contradiction. Therefore there cannot be a sequence with infinite ones that does not either diverge or converge to $1$ itself.
   \item $1,0,1,1,0,1,1,1,0,1,1,1,1,\ldots$
   }
 \end{solution}
