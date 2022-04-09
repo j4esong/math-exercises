@@ -220,7 +220,8 @@ $$
   \enum{
   \item This is necessarily true only if $a_n$ and $b_n$ are convergent, by the Algebraic Limit Theorem. Otherwise, consider $a_n = b_n = (-1)^n$.
   \item True, since $||b_n| - |b|| \leq |b_n - b| < \epsilon$.
-  \item $b-a=0$\i
+  \item By the Algebraic Limit Theorem, $\lim b_n = \lim (b_n - a_n) + \lim a_n = a$.
+  \item True, since $|b_n -b| \leq a_n < \epsilon$ for $n\geq N$. 
   }
 \end{solution}
 
@@ -236,7 +237,24 @@ $$
 \end{exercise}
 
 \begin{solution}
-  
+  \enum{
+  \item 
+  Fix some $\epsilon > 0$. First, choose $N$ such that $|x_n - x| < \epsilon/2$ for all $n > N$. Let $M$ be the sum of the first $N$ terms of $|x_n - x|$. Now choose some $X$ such that 
+  $$
+  \begin{aligned}
+  \frac{2M}{\epsilon} - N < X
+  &\implies M - N\epsilon < \frac{X\epsilon}{2} \\
+  &\implies M + \frac{X\epsilon}{2} < (N+X)\epsilon \\
+  &\implies |x_1-x|+\ldots+|x_{N+X}-x| < M + \frac{X\epsilon}{2} < (N+X)\epsilon \\
+  &\implies |\frac{x_1 + \ldots + x_{N+X}}{N+X} - x|<\epsilon
+  \end{aligned}
+  $$
+  Essentially, $X$ is the number of terms $|x_n - x| < \epsilon/2$ that we need to "drag" the mean back under $\epsilon$.
+
+  Then it is easy to see that for all $n\geq N+X$, $|y_n - x| <\epsilon$.
+  \item 
+  $a_n = (-1)^n$, where the sequence of means converges to $0$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -250,7 +268,14 @@ $$
 \end{exercise}
 
 \begin{solution}
-
+  \enum{
+  \item
+  Since $B$ has at least one upper bound, it is bounded and therefore has a supremum. Call this supremum $b$. If every $a_n$ is an upper bound for $B$, $a_n\geq b$ for all $n\in\mathbf{N}$. By the Order Limit Theorem, $\lim a_n = a\geq b$, so $a$ is an upper bound on $B$.
+  \item
+  This is false. Consider $a_n = -\frac{1}{n}$, which is always negative and therefore in the complement of $(0, 1)$ for all finite $n$, but tends to $0$.
+  \item 
+  This is false. Consider decimal approximations of $\sqrt 2$ of increasing length: they are all rational, but tend to an irrational number.
+  }
 \end{solution}
 
 \begin{exercise}[Iterated Limits]
@@ -269,5 +294,5 @@ $$
 \end{exercise}
 
 \begin{solution}
-
+  \TODO
 \end{solution}
