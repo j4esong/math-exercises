@@ -285,8 +285,8 @@ $$
   $$
   \lim _{n \rightarrow \infty}\left(\lim _{m \rightarrow \infty} a_{m n}\right) \quad \text { and } \lim _{m \rightarrow \infty}\left(\lim _{n \rightarrow \infty} a_{m n}\right)
   $$
-  Define $\lim _{m, n \rightarrow \infty} a_{m n}=a$ to mean that for all $\epsilon>0$ there exists an $N \in \mathbf{N}$ such that if both $m, n \geq N$, then $\left|a_{m n}-a\right|<\epsilon$
-  \item Let $a_{m n}=1 /(m+n)$. Does $\lim _{m, n \rightarrow \infty} a_{m n}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{m n}=m n /\left(m^{2}+n^{2}\right)$
+  Define $\lim _{m, n \rightarrow \infty} a_{m n}=a$ to mean that for all $\epsilon>0$ there exists an $N \in \mathbf{N}$ such that if both $m, n \geq N$, then $\left|a_{m n}-a\right|<\epsilon$.
+  \item Let $a_{m n}=1 /(m+n)$. Does $\lim _{m, n \rightarrow \infty} a_{m n}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{m n}=m n /\left(m^{2}+n^{2}\right)$.
   \item Produce an example where $\lim _{m, n \rightarrow \infty} a_{m n}$ exists but where neither iterated limit can be computed.
   \item Assume $\lim _{m, n \rightarrow \infty} a_{m n}=a$, and assume that for each fixed $m \in \mathbf{N}$, $\lim _{n \rightarrow \infty}\left(a_{m n}\right) \rightarrow b_{m}$. Show $\lim _{m \rightarrow \infty} b_{m}=a$
   \item Prove that if $\lim _{m, n \rightarrow \infty} a_{m n}$ exists and the iterated limits both exist, then all three limits must be equal.
@@ -294,5 +294,28 @@ $$
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item
+  $$\lim_{n\to\infty} \left( \lim_{m\to\infty} a_{mn} \right) = 1$$
+  $$\lim_{m\to\infty} \left( \lim_{n\to\infty} a_{mn} \right) = 0$$
+  \item
+  For $a_mn = 1/(m+n)$, all three limits are zero. For $a_mn = mn/(m^2+n^2)$, the combined limit does not exist because $a_mn = \frac{1}{2}$ whenever $M = N$, whereas the iterated limits are zero.
+  \item 
+  \REPLACE
+  $$a_mn = \frac{(-1)^n}{m} + \frac{(-1)^m}{n}.$$
+  \item 
+  Fix $\epsilon > 0$. We are given that, for some $S_0$ and some $S_1$, 
+  $$
+  |a_{mn} - b_m| < \epsilon/2 \text{ for } m\in\mathbf{N}, n\geq S_0
+  $$
+  $$
+  |a_{mn} - a|<\epsilon/2 \text{ for } m, n\geq S_1
+  $$
+  Now choose $N = \max(S_0, S_1)$. Then 
+  $$
+  |b_m-a|\leq|b_m-a_{mn}|+|a_{mn}-a|<\epsilon \text { for } m \geq N.
+  $$
+  \item 
+  This was already shown in (d).
+  }
 \end{solution}
