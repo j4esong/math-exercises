@@ -288,7 +288,7 @@ $$
   Define $\lim _{m, n \rightarrow \infty} a_{m n}=a$ to mean that for all $\epsilon>0$ there exists an $N \in \mathbf{N}$ such that if both $m, n \geq N$, then $\left|a_{m n}-a\right|<\epsilon$.
   \item Let $a_{m n}=1 /(m+n)$. Does $\lim _{m, n \rightarrow \infty} a_{m n}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{m n}=m n /\left(m^{2}+n^{2}\right)$.
   \item Produce an example where $\lim _{m, n \rightarrow \infty} a_{m n}$ exists but where neither iterated limit can be computed.
-  \item Assume $\lim _{m, n \rightarrow \infty} a_{m n}=a$, and assume that for each fixed $m \in \mathbf{N}$, $\lim _{n \rightarrow \infty}\left(a_{m n}\right) \rightarrow b_{m}$. Show $\lim _{m \rightarrow \infty} b_{m}=a$
+  \item Assume $\lim _{m, n \rightarrow \infty} a_{m n}=a$, and assume that for each fixed $m \in \mathbf{N}$, $\lim _{n \rightarrow \infty}\left(a_{m n}\right) \rightarrow b_{m}$. Show $\lim _{m \rightarrow \infty} b_{m}=a$.
   \item Prove that if $\lim _{m, n \rightarrow \infty} a_{m n}$ exists and the iterated limits both exist, then all three limits must be equal.
   }
 \end{exercise}
@@ -304,18 +304,22 @@ $$
   \REPLACE
   $$a_mn = \frac{(-1)^n}{m} + \frac{(-1)^m}{n}.$$
   \item 
-  Fix $\epsilon > 0$. We are given that, for some $S_0$ and some $S_1$, 
+  Fix $\epsilon > 0$. 
+
+  We are given two conditions: first, for any $m$, there exists $S_m$ (dependent on $m$) such that
   $$
-  |a_{mn} - b_m| < \epsilon/2 \text{ for } m\in\mathbf{N}, n\geq S_0
+  |a_{mn} - b_m| < \epsilon/2 \text{ for } n\geq S_m.
   $$
+  Second, there exists $S$ such that
   $$
-  |a_{mn} - a|<\epsilon/2 \text{ for } m, n\geq S_1
+  |a_{mn} - a|<\epsilon/2 \text{ for } m, n\geq S.
   $$
-  Now choose $N = \max(S_0, S_1)$. Then 
+  This implies that, for all $m\geq S$, there exists $S_m$ such that the first condition is true; then choose $n\geq \max(S_m, S)$, and we have shown that for any choice of $m\geq S$, there exists an $n$ such that both conditions are true. Thus we can say
   $$
-  |b_m-a|\leq|b_m-a_{mn}|+|a_{mn}-a|<\epsilon \text { for } m \geq N.
+  |b_m-a|\leq|b_m-a_{mn}|+|a_{mn}-a|<\epsilon \text { for } m \geq S.
   $$
   \item 
+  \BAD
   This was already shown in (d).
   }
 \end{solution}
