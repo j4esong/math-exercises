@@ -1,0 +1,329 @@
+\section{The Monotone Convergence Theorem and a First Look at Infinite Series}
+
+\begin{exercise}
+  \enum{
+  \item Prove that the sequence defined by $x_{1}=3$ and
+    $$
+    x_{n+1}=\frac{1}{4-x_{n}}
+    $$
+    converges.
+  \item Now that we know $\lim x_{n}$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value.
+  \item Take the limit of each side of the recursive equation in part (a) to explicitly compute $\lim x_{n}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $x_n$ is monotone decreasing; and because $x_n < 4$, $x_n$ is always greater than zero, which means that it is bounded and therefore convergent.
+  \item The sequences $x_n$ and $x_{n+1}$ are just the same sequence, only offset by one term.
+  \item 
+  $$
+  \begin{aligned}
+  \lim x_{n+1} = \lim \left( \frac{1}{4-x_n}\right)
+  &\implies s = \frac{1}{4-s} \\
+  &\implies s^2 - 4s +1 = 0 \\
+  &\implies s = 2\pm\sqrt 3
+  \end{aligned}
+  $$
+  However, $s$ cannot be $2+\sqrt 3$ as $2 + \sqrt 3 > 3$, so $s = 2-\sqrt 3$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Consider the recursively defined sequence $y_{1}=1$
+  $$
+  y_{n+1}=3-y_{n}
+  $$
+  and set $y=\lim y_{n} .$ Because $\left(y_{n}\right)$ and $\left(y_{n+1}\right)$ have the same limit, taking the limit across the recursive equation gives $y=3-y$. Solving for $y$, we conclude $\lim y_{n}=3 / 2$.
+  What is wrong with this argument?
+  \item This time set $y_{1}=1$ and $y_{n+1}=3-\frac{1}{y_{n}}$. Can the strategy in (a) be applied to compute the limit of this sequence?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We don't know that it converges at all. In the previous exercise, we showed that the sequence was convergent before taking the limit.
+  \item Yes, because it is bounded above and monotone increasing.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that
+    $$
+    \sqrt{2}, \sqrt{2+\sqrt{2}}, \sqrt{2+\sqrt{2+\sqrt{2}}}, \ldots
+    $$
+    converges and find the limit.
+  \item Does the sequence
+    $$
+    \sqrt{2}, \sqrt{2 \sqrt{2}}, \sqrt{2 \sqrt{2 \sqrt{2}}}, \ldots
+    $$
+    converge? If so, find the limit.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item To show that this sequence converges, we must show that it is bounded above and monotone increasing.
+
+  First, it is apparent that $y_2 \geq y_1$. Now, given that $y_{k+1} \geq y_k$, then $2 + y_{k+1} \geq 2 + y_k$, and $\sqrt{2 + y_{k+1}} \geq \sqrt{2 + y_k}$. 
+
+  Similarly, it is apparent that $y_1 \leq 4$. Now, given that $y_k \leq 4$, it is easy to see that $y_k + 2 \leq 6$ and so $\sqrt{y_k + 2} \leq 4$.
+  Finally, setting $y = \lim y_n$ gives $y=\sqrt{2 + y}\implies y = 2$.
+  \item
+  The sequence can be rewritten as $2^{\frac{1}{2}}$, $2^\frac{3}{4}$, $2^\frac{7}{8}\ldots$, which is clearly monotone increasing and bounded above. Now $y = \sqrt{2y}\implies y = 2$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item In Section 1.4 we used the Axiom of Completeness (AoC) to prove the Archimedean Property of $\mathbf{R}$ (Theorem 1.4.2). Show that the Monotone Convergence Theorem can also be used to prove the Archimedean Property without making any use of AoC.
+  \item Use the Monotone Convergence Theorem to supply a proof for the Nested Interval Property (Theorem 1.4.1) that doesn't make use of AoC.
+
+  These two results suggest that we could have used the Monotone Convergence Theorem in place of $\mathrm{AoC}$ as our starting axiom for building a proper theory of the real numbers.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item 
+  \REPLACE
+  Assume, for contradiction, that $\mathbf{N}$ is bounded above. Then the sequence that defines the natural numbers, $x_{n+1} = x_n + 1$, must converge. Taking the limit of both sides gives $0 = 1$, which is clearly false.
+  \item 
+  Given a sequence of nested intervals, consider the sequence of left-hand endpoints and the sequence of right-hand endpoints. They are monotone increasing and monotone decreasing respectively, and bounded by $b_1$ and $a_1$ respectively. Therefore they must converge, and the Order Limit Theorem, states that $a\leq b$. Now there must exist a $c\in\mathbf{R}$ such that $a\leq c\leq b$, and $c$ is in every interval.
+  }
+\end{solution}
+
+\begin{exercise}[Calculating Square Roots]
+  Let $x_{1}=2$, and define
+  $$
+  x_{n+1}=\frac{1}{2}\left(x_{n}+\frac{2}{x_{n}}\right)
+  $$
+  \enum{
+  \item Show that $x_{n}^{2}$ is always greater than or equal to 2 , and then use this to prove that $x_{n}-x_{n+1} \geq 0$. Conclude that $\lim x_{n}=\sqrt{2}$.
+  \item Modify the sequence $\left(x_{n}\right)$ so that it converges to $\sqrt{c}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Clearly $x_1^2 \ge 2$, now procede by induction. if $x_{n}^2 \ge 2$ then we have
+    $$
+    x_{n+1}^2 = \frac 14\left(\frac{x_n^2 + 2}{x_n}\right)^2
+    = \frac 14\left(\frac{(x_n^2 + 2)^2}{x_n^2}\right)
+    \ge \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right)
+    $$
+    Now since $x_n^2 \ge 2$ we have $(x_n^2 + 2)^2 \ge 16$ meaning
+    $$
+    x_{n+1}^2 = \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right) \ge 2.
+    $$
+    Now to show $x_n - x_{n+1} \ge 0$ we use $x_n \ge 0$
+    $$
+    \begin{aligned}
+      x_n - x_{n+1} &= x_n - \frac 12\left(x_n + \frac{2}{x_n}\right) \\
+                    &= \frac 12 x_n + \frac{1}{x_n} \ge 0
+    \end{aligned}
+    $$
+    Now we know $(x_n) \to x$ converges by MCT, to show $x^2 = 2$ we equate $x_n = x_{n+1}$ (true in the limit since $|x_n - x_{n+1}|$ becomes arbitrarily small)
+    $$
+    x = \frac 12 \left(x + \frac{2}{x}\right) \iff x^2 = \frac 12 x^2 + 1 \iff x^2 = 2
+    $$
+    therefore $x = \pm \sqrt 2$, and since every $x_n$ is positive $x = \sqrt 2$.
+  \item Let
+    $$
+    x_{n+1} = \frac{1}{2}\left(x_n + \frac{c}{x_n}\right)
+    $$
+    I won't go through the convergence analysis again, but the only fixed point is
+    $$
+    x = \frac 12\left(x + \frac{c}{x}\right) \implies \frac 12 x^2 = \frac 12 c \implies x^2 = c
+    $$
+    So if $x_n$ converges, it must converge to $x^2 = c$.
+  }
+\end{solution}
+
+\begin{exercise}[Arithmetic-Geometric Mean]
+  \enum{
+  \item Explain why $\sqrt{x y} \leq$ $(x+y) / 2$ for any two positive real numbers $x$ and $y$. (The geometric mean is always less than the arithmetic mean.)
+  \item Now let $0 \leq x_{1} \leq y_{1}$ and define
+    $$
+    x_{n+1}=\sqrt{x_{n} y_{n}} \quad \text { and } \quad y_{n+1}=\frac{x_{n}+y_{n}}{2}
+    $$
+    Show $\lim x_{n}$ and $\lim y_{n}$ both exist and are equal.
+  }
+
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We have
+    $$
+    \sqrt{xy} \le (x+y)/2 \iff 4xy \le x^2 + 2xy + y^2 \iff 0 \le (x - y)^2
+    $$
+  \item The only fixed point is $x_n = y_n$ so we only need to show both sequences converge.
+
+    The inequality $x_1 \le y_1$ is always true since
+    $$
+    \sqrt{x_ny_n} \le \frac{x_n + y_n}{2} \implies x_{n+1} \le y_{n+1}
+    $$
+    Also $x_n \le y_n$ implies $(x_n+y_n)/2 = y_{n+1} \le y_n$, similarly $\sqrt{x_ny_n} = x_{n+1} \ge x_n$ meaning both sequences converge by the monotone convergence theorem.
+  }
+\end{solution}
+
+\begin{exercise}[Limit Superior]
+  \label{ex:lim_sup}
+  Let $\left(a_{n}\right)$ be a bounded sequence.
+
+  \enum{
+  \item Prove that the sequence defined by $y_{n}=\sup \left\{a_{k}: k \geq n\right\}$ converges.
+  \item The limit superior of $\left(a_{n}\right)$, or $\lim \sup a_{n}$, is defined by
+    $$
+    \limsup a_{n}=\lim y_{n}
+    $$
+    where $y_{n}$ is the sequence from part (a) of this exercise. Provide a reasonable definition for $\lim \inf a_{n}$ and briefly explain why it always exists for any bounded sequence.
+  \item Prove that $\lim \inf a_{n} \leq \lim \sup a_{n}$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+  \item Show that $\lim \inf a_{n}=\lim \sup a_{n}$ if and only if $\lim a_{n}$ exists. In this case, all three share the same value.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $(y_n)$ is decreasing and converges by the monotone convergence theorem.
+  \item Define $\lim \inf a_n = \lim z_n$ for $z_n = \inf\{a_n : k \ge n\}$. $z_n$ converges since it is increasing and bounded.
+  \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$.
+  \item If $\lim \inf a_n = \lim \sup a_n$ then the squeeze theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
+  }
+\end{solution}
+
+\begin{exercise}
+  For each series, find an explicit formula for the sequence of partial sums and determine if the series converges.
+  \enum{
+  \item $\sum_{n=1}^{\infty} \frac{1}{2^{n}}$
+  \item $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$
+  \item $\sum_{n=1}^{\infty} \log \left(\frac{n+1}{n}\right)$
+  }
+  (In (c), $\log (x)$ refers to the natural logarithm function from calculus.)
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item This is a geometric series, we can use the usual trick to derive $s_n$. Let $r = 1/2$ for convenience
+    $$
+    \begin{aligned}
+      s_n  &= 1 + r + r^2 + \dots + r^n \\
+      rs_n &= r + r^2 + \dots + r^{n+1} \\
+      rs_n - s_n &= r^{n+1} - 1 \implies s_n = \frac{r^{n+1} - 1}{r - 1}
+    \end{aligned}
+    $$
+    This is the formula when $n$ starts at zero, but the sum in question starts at one so we subtract the first term to correct this
+    $$
+    \sum_{n=1}^\infty \frac{1}{2^n}
+    = -1 + \sum_{n=0}^\infty \frac{1}{2^n}
+    = -1 + \lim_{n\to \infty} \frac{(1/2)^{n+1} - 1}{1/2 - 1}
+    = -1 + \frac{-1}{-1/2} = 1
+    $$
+  \item We can use partial fractions to get
+    $$
+    \frac{1}{n(n+1)} = \frac{1}{n} -\frac{1}{n+1}
+    $$
+    Which gives us a telescoping series, most of the terms cancel and we get
+    $$
+    s_n = 1 - \frac{1}{n+1}
+    $$
+    Therefor
+    $$
+    \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1
+    $$
+  \item Another telescoping series, since
+    $$
+    \log\left(\frac{n+1}{n}\right) = \log(n+1) - \log(n)
+    $$
+    therefore most of the terms cancel and we get
+    $$
+    s_n = \log(n+1)
+    $$
+    Which doesn't converge.
+  }
+\end{solution}
+
+\begin{exercise}
+  Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty} 2^{n} b_{2^{n}}$ diverges, then so does $\sum_{n=1}^{\infty} b_{n}$. Example $2.4 .5$ may be a useful reference.
+\end{exercise}
+
+\begin{solution}
+  Let $s_n = b_1 + b_2 + \dots + b_n$ and $t_k = b_1 + 2b_2 + \dots + 2^kb_{2^k}$.
+
+  We want to show $s_n$ is unbounded, first we find a series similar to $t_k$ that is less then $s_n$, then rewrite it in terms of $t_k$.
+
+  Let $n = 2^k$ so things match up nicely. We get
+  $$
+  \begin{aligned}
+  s_n
+  &=   b_1 + b_2 + (b_3 + b_4) + \dots + (b_{2^{k-1}} + \dots + b_{2^k}) \\
+  &\le b_1 + b_2 + (b_4 + b_4) + \dots + 2^{k-1}b_{2^k}
+  \end{aligned}
+  $$
+  (Notice there are $2^k - 2^{k-1} = 2^{k-1}$ terms in the last term)
+
+  Now define $t_k'$ to be our new series $b_1 + b_2 + 2b_4 + 4b_8 + \dots + 2^{k-1}b_{2^k}$.
+  This looks a lot like $t_k$, and in fact some algebra gives
+  $$
+  t_k'
+  = \frac 12 \left(b_1 + 2b_2 + 4b_4 + \dots + 2^kb_k\right) + \frac 12 b_1
+  = \frac 12 t_k + \frac 12 b_1
+  $$
+  therefore we are justified in writing
+  $$
+  s_n \ge t_k' \ge \frac 12 t_k
+  $$
+  And since $t_k/2$ diverges and $s_n$ is bigger, $s_n$ must also diverge.
+
+  \textbf{Summary}: $s_n$ converges iff $t_k$ conv since $t_k \ge s_n \ge t_k/2$ for $n = 2^k$.
+\end{solution}
+
+\begin{exercise}[Infinite Products]
+  A close relative of infinite series is the infinite product
+  $$
+  \prod_{n=1}^{\infty} b_{n}=b_{1} b_{2} b_{3} \cdots
+  $$
+  which is understood in terms of its sequence of partial products
+  $$
+  p_{m}=\prod_{n=1}^{m} b_{n}=b_{1} b_{2} b_{3} \cdots b_{m}
+  $$
+
+  Consider the special class of infinite products of the form
+  $$
+  \prod_{n=1}^{\infty}\left(1+a_{n}\right)=\left(1+a_{1}\right)\left(1+a_{2}\right)\left(1+a_{3}\right) \cdots, \quad \text { where } a_{n} \geq 0
+  $$
+  \enum{
+  \item Find an explicit formula for the sequence of partial products in the case where $a_{n}=1 / n$ and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where $a_{n}=1 / n^{2}$ and make a conjecture about the convergence of this sequence.
+  \item Show, in general, that the sequence of partial products converges if and only if $\sum_{n=1}^{\infty} a_{n}$ converges. (The inequality $1+x \leq 3^{x}$ for positive $x$ will be useful in one direction.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item This is a telescoping product, most of the terms cancel
+    $$
+    p_m = \prod_{n=1}^m (1 + 1/n) = \prod_{n=1}^m \frac{n+1}{n} = \frac 21 \cdot \frac 32 \cdot \frac 42 \cdots \frac {m+1}{m} = m+1
+    $$
+    therefore $(p_m)$ diverges.
+
+    In the cast $a_n = 1/n^2$ we get
+    $$
+    \prod_{n=1}^\infty (1+ 1/n^2) = \prod_{n=1}^\infty \frac{1 + n^2}{n^2} = \frac 21 \cdot \frac 54 \cdot \frac{10}{9} \cdots
+    $$ 
+    The growth seems slower, I conjecture it converges now.
+  \item Using the inequality suggested we have $1 + a_n \le 3^{a_n}$ letting $s_m = a_1 + \dots + a_m$ we get
+    $$
+    p_m = (1+a_1)\cdots(1+a_m) \le 3^{a_1}3^{a_2}\cdots 3^{a_m} = 3^{s_m}
+    $$
+    Now if $s_m$ converges it is bounded by some $M$ meaning $p_m$ is bounded by $3^M$. and because $a_n \ge 0$ the partial products $p_m$ are increasing, so they converge by the MCT. This shows $s_m$ converging implies $p_m$ converges.
+
+    For the other direction suppose $p_m \to p$. Distributing inside the products gives $p_2 = a_1 + a_2 + 1 + a_1a_2 > s_2$ and in general $p_m > s_m$ implying that if $p_m$ is bounded then $s_n$ is bounded aswell. This completes the proof.
+
+    \textbf{Summary}: Convergence is if and only if because $s_m \le p_m \le 3^{s_m}$.
+
+    (By the way the inequality $1 + x \le 3^x$ can be derived from $\log(1 + x) \le x$ implying $1 + x \le e^x$, I assume abbott rounded up to $3$.)
+  }
+\end{solution}
