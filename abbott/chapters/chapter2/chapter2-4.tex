@@ -101,44 +101,29 @@
   x_{n+1}=\frac{1}{2}\left(x_{n}+\frac{2}{x_{n}}\right)
   $$
   \enum{
-  \item Show that $x_{n}^{2}$ is always greater than or equal to 2 , and then use this to prove that $x_{n}-x_{n+1} \geq 0$. Conclude that $\lim x_{n}=\sqrt{2}$.
+  \item Show that $x_{n}^{2}$ is always greater than or equal to 2, and then use this to prove that $x_{n}-x_{n+1} \geq 0$. Conclude that $\lim x_{n}=\sqrt{2}$.
   \item Modify the sequence $\left(x_{n}\right)$ so that it converges to $\sqrt{c}$.
   }
 \end{exercise}
 
 \begin{solution}
   \enum{
-  \item Clearly $x_1^2 \ge 2$, now procede by induction. if $x_{n}^2 \ge 2$ then we have
-    $$
-    x_{n+1}^2 = \frac 14\left(\frac{x_n^2 + 2}{x_n}\right)^2
-    = \frac 14\left(\frac{(x_n^2 + 2)^2}{x_n^2}\right)
-    \ge \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right)
-    $$
-    Now since $x_n^2 \ge 2$ we have $(x_n^2 + 2)^2 \ge 16$ meaning
-    $$
-    x_{n+1}^2 = \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right) \ge 2.
-    $$
-    Now to show $x_n - x_{n+1} \ge 0$ we use $x_n \ge 0$
-    $$
-    \begin{aligned}
-      x_n - x_{n+1} &= x_n - \frac 12\left(x_n + \frac{2}{x_n}\right) \\
-                    &= \frac 12 x_n + \frac{1}{x_n} \ge 0
-    \end{aligned}
-    $$
-    Now we know $(x_n) \to x$ converges by MCT, to show $x^2 = 2$ we equate $x_n = x_{n+1}$ (true in the limit since $|x_n - x_{n+1}|$ becomes arbitrarily small)
-    $$
-    x = \frac 12 \left(x + \frac{2}{x}\right) \iff x^2 = \frac 12 x^2 + 1 \iff x^2 = 2
-    $$
-    therefore $x = \pm \sqrt 2$, and since every $x_n$ is positive $x = \sqrt 2$.
-  \item Let
-    $$
-    x_{n+1} = \frac{1}{2}\left(x_n + \frac{c}{x_n}\right)
-    $$
-    I won't go through the convergence analysis again, but the only fixed point is
-    $$
-    x = \frac 12\left(x + \frac{c}{x}\right) \implies \frac 12 x^2 = \frac 12 c \implies x^2 = c
-    $$
-    So if $x_n$ converges, it must converge to $x^2 = c$.
+  \item
+  It is trivial to see that $x_1^2 \geq 2$. Now, 
+  $$
+  \begin{aligned}
+  x_n^2 \geq 2
+  &\implies (x_n^2-2)^2\geq 0 \\
+  &\implies \frac{(x^2_n+2)^2}{4x_n^2} \geq 2 \\
+  &\implies \frac{1}{4}\left( x^2_n + 4 + \frac{4}{x^2_n}\right)\geq 2\\
+  &\implies x_{n+1}^2\geq 2
+  \end{aligned}
+  $$
+  To see that $x_n - x_{n+1} \geq 0$, $$x_{n+1} - x_{n} = \frac{3}{4}x_n^2 - \frac{1}{x^2_n} - 1 \geq 0$$ for all $x_n^2 \geq 2$. 
+  
+  Finally, taking the limit of both sides gives $\frac{1}{2}c = \frac{1}{c}\implies c = \sqrt 2$.
+  \item 
+  $$x_{n+1} = \left(1 - \frac{1}{c}\right)\left( x_n + \frac{1}{x_n(1-\frac{1}{c})}\right)$$
   }
 \end{solution}
 
@@ -156,17 +141,16 @@
 
 \begin{solution}
   \enum{
-  \item We have
-    $$
-    \sqrt{xy} \le (x+y)/2 \iff 4xy \le x^2 + 2xy + y^2 \iff 0 \le (x - y)^2
-    $$
-  \item The only fixed point is $x_n = y_n$ so we only need to show both sequences converge.
-
-    The inequality $x_1 \le y_1$ is always true since
-    $$
-    \sqrt{x_ny_n} \le \frac{x_n + y_n}{2} \implies x_{n+1} \le y_{n+1}
-    $$
-    Also $x_n \le y_n$ implies $(x_n+y_n)/2 = y_{n+1} \le y_n$, similarly $\sqrt{x_ny_n} = x_{n+1} \ge x_n$ meaning both sequences converge by the monotone convergence theorem.
+  \item
+  $$
+  \begin{aligned}
+  \frac{(x-y)^2}{4}\geq 0
+  &\implies xy \leq \frac{(x+y)^2}{4} \\
+  &\implies \sqrt{xy} \leq \frac{x+y}{2}
+  \end{aligned}
+  $$
+  \item
+  First, $(y_n)$ is monotone decreasing and bounded below by $0$. This is because for any $n$, $x_n \leq y_n$ and so $\frac{x_n + y_n}{2}\leq \frac{2y_n}{2}$, and given that $x_n$ and $y_n$ are both greater than $0$, their arithmetic mean must also be greater than $0$. $(x_n)$ is monotone increasing and bounded above by $y_1$. So $y = \lim y_n$ and $x = \lim x_n$ both exist; thus we can take $$y = \frac{x + y}{2}\implies x = y.$$
   }
 \end{solution}
 
@@ -188,10 +172,13 @@
 
 \begin{solution}
   \enum{
-  \item $(y_n)$ is decreasing and converges by the monotone convergence theorem.
-  \item Define $\lim \inf a_n = \lim z_n$ for $z_n = \inf\{a_n : k \ge n\}$. $z_n$ converges since it is increasing and bounded.
-  \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$.
-  \item If $\lim \inf a_n = \lim \sup a_n$ then the squeeze theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
+
+  \item $(y_n)$ is decreasing and bounded because $a_n$ is bounded.
+  \item The limit of the sequence $y_n = \inf \{a_k \mid k\geq n\}$. It exists because the sequence is monotone increasing and bounded.
+  \item Every term of the sequence of infimums is less than the corresponding term in the sequence of supremums, so by the Order Limit Theorem, $\lim \inf a_n \leq \lim \sup a_n$. One example of a sequence for which this inequality is strict is $x_n = (-1)^n$.
+  \item ($\Rightarrow$) If, for some $n$, both $\sup\{a_k \mid k\geq n\}$ and $\inf\{a_k \mid k\geq n\}$ are within $\epsilon$ of some $c$, then it is clear that $a_k$ is within $\epsilon$ of that same $c$ for $k\geq n$. Thus it has been demonstrated that the limit exists and is $c$.
+
+  ($\Leftarrow$) Fix $\epsilon > 0$. Then there exists some $N$ for which $|x_n - c| < \epsilon/2$ for all $n\geq N$. Now the sequence of infimums, $i_n$, for $n\geq N$ must be greater than or equal to $c - \epsilon/2$ since it is a lower bound on $x_n$; similarly, the sequence of supremums, $s_n$, must be less than or equal to $c + \epsilon/2$. Therefore $|i_n - c| < \epsilon$ and $|s_n - c| < \epsilon$ for all $n\geq N$.
   }
 \end{solution}
 
@@ -207,78 +194,29 @@
 
 \begin{solution}
   \enum{
-  \item This is a geometric series, we can use the usual trick to derive $s_n$. Let $r = 1/2$ for convenience
-    $$
-    \begin{aligned}
-      s_n  &= 1 + r + r^2 + \dots + r^n \\
-      rs_n &= r + r^2 + \dots + r^{n+1} \\
-      rs_n - s_n &= r^{n+1} - 1 \implies s_n = \frac{r^{n+1} - 1}{r - 1}
-    \end{aligned}
-    $$
-    This is the formula when $n$ starts at zero, but the sum in question starts at one so we subtract the first term to correct this
-    $$
-    \sum_{n=1}^\infty \frac{1}{2^n}
-    = -1 + \sum_{n=0}^\infty \frac{1}{2^n}
-    = -1 + \lim_{n\to \infty} \frac{(1/2)^{n+1} - 1}{1/2 - 1}
-    = -1 + \frac{-1}{-1/2} = 1
-    $$
-  \item We can use partial fractions to get
-    $$
-    \frac{1}{n(n+1)} = \frac{1}{n} -\frac{1}{n+1}
-    $$
-    Which gives us a telescoping series, most of the terms cancel and we get
-    $$
-    s_n = 1 - \frac{1}{n+1}
-    $$
-    Therefor
-    $$
-    \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1
-    $$
-  \item Another telescoping series, since
-    $$
-    \log\left(\frac{n+1}{n}\right) = \log(n+1) - \log(n)
-    $$
-    therefore most of the terms cancel and we get
-    $$
-    s_n = \log(n+1)
-    $$
-    Which doesn't converge.
+  \item $S_n = 1 - \frac{1}{2^n}$. This sequence converges to $1$, as can be seen by applying the Archimedean Property.
+  \item $S_n = 1 - \frac{1}{n+1}$. Again, this sequence converges to $1$.
+  \item $S_n = \log(n+1)$. This sequence diverges.
   }
 \end{solution}
 
 \begin{exercise}
-  Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty} 2^{n} b_{2^{n}}$ diverges, then so does $\sum_{n=1}^{\infty} b_{n}$. Example $2.4 .5$ may be a useful reference.
+  Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty} 2^{n} b_{2^{n}}$ diverges, then so does $\sum_{n=1}^{\infty} b_{n}$. Example $2.4.5$ may be a useful reference.
 \end{exercise}
 
 \begin{solution}
-  Let $s_n = b_1 + b_2 + \dots + b_n$ and $t_k = b_1 + 2b_2 + \dots + 2^kb_{2^k}$.
-
-  We want to show $s_n$ is unbounded, first we find a series similar to $t_k$ that is less then $s_n$, then rewrite it in terms of $t_k$.
-
-  Let $n = 2^k$ so things match up nicely. We get
+  First, divide the partial sum $t_k$ by $2$. This partial sum is still unbounded for all $k$ as if it were bounded by $M$, then $t_k$ would be bounded by $2M$. So the new partial sum is then $$t_k = \frac{b_1}{2} + b_2 + 2b_4 + \ldots + 2^{k-1}b_{2^k}.$$ Now consider 
   $$
   \begin{aligned}
-  s_n
-  &=   b_1 + b_2 + (b_3 + b_4) + \dots + (b_{2^{k-1}} + \dots + b_{2^k}) \\
-  &\le b_1 + b_2 + (b_4 + b_4) + \dots + 2^{k-1}b_{2^k}
+  s_{2^k} 
+  &= (b_1) + (b_2) + (b_3 + b_4) + \ldots + (b_{2^{k-1} + 1} + \ldots + b_{2k})\\
+  &\geq \frac{b_1}{2} + b_2 + 2b_4 + \ldots + 2^{k-1}b_{2^k}\\
+  &= t_k,\\
   \end{aligned}
   $$
-  (Notice there are $2^k - 2^{k-1} = 2^{k-1}$ terms in the last term)
+  which is unbounded. Therefore the partial sums must also be unbounded, and the sum diverges.
 
-  Now define $t_k'$ to be our new series $b_1 + b_2 + 2b_4 + 4b_8 + \dots + 2^{k-1}b_{2^k}$.
-  This looks a lot like $t_k$, and in fact some algebra gives
-  $$
-  t_k'
-  = \frac 12 \left(b_1 + 2b_2 + 4b_4 + \dots + 2^kb_k\right) + \frac 12 b_1
-  = \frac 12 t_k + \frac 12 b_1
-  $$
-  therefore we are justified in writing
-  $$
-  s_n \ge t_k' \ge \frac 12 t_k
-  $$
-  And since $t_k/2$ diverges and $s_n$ is bigger, $s_n$ must also diverge.
-
-  \textbf{Summary}: $s_n$ converges iff $t_k$ conv since $t_k \ge s_n \ge t_k/2$ for $n = 2^k$.
+  This completes the proof. We have proved that $A'$ implies $B'$; this is the same as saying that $B$ implies $A$ since there is no way for $B$ to be true without $A$ being true.
 \end{solution}
 
 \begin{exercise}[Infinite Products]
