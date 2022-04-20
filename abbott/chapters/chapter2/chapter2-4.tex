@@ -241,27 +241,10 @@
 
 \begin{solution}
   \enum{
-  \item This is a telescoping product, most of the terms cancel
-    $$
-    p_m = \prod_{n=1}^m (1 + 1/n) = \prod_{n=1}^m \frac{n+1}{n} = \frac 21 \cdot \frac 32 \cdot \frac 42 \cdots \frac {m+1}{m} = m+1
-    $$
-    therefore $(p_m)$ diverges.
+  \item $s_n = n+1$. The sequence does not converge. For $1/n^2$, the first few terms are $$\frac{2}{1}\times \frac{5}{4}\times \frac{10}{9}\ldots$$ which seems like it should converge.
+  \item
+  ($\Rightarrow$) First, note that $$\sum_{n=1}^m a_n \leq \prod_{n=1}^m (1 + a_n)$$ since when the expression on the right is expanded, it will include the expression on the left. Since we are given that the expression on the right is bounded, and because $a_n \geq 0$, the partial sums of $(a_n)$ converge by the Monotone Convergence Theorem.
 
-    In the cast $a_n = 1/n^2$ we get
-    $$
-    \prod_{n=1}^\infty (1+ 1/n^2) = \prod_{n=1}^\infty \frac{1 + n^2}{n^2} = \frac 21 \cdot \frac 54 \cdot \frac{10}{9} \cdots
-    $$ 
-    The growth seems slower, I conjecture it converges now.
-  \item Using the inequality suggested we have $1 + a_n \le 3^{a_n}$ letting $s_m = a_1 + \dots + a_m$ we get
-    $$
-    p_m = (1+a_1)\cdots(1+a_m) \le 3^{a_1}3^{a_2}\cdots 3^{a_m} = 3^{s_m}
-    $$
-    Now if $s_m$ converges it is bounded by some $M$ meaning $p_m$ is bounded by $3^M$. and because $a_n \ge 0$ the partial products $p_m$ are increasing, so they converge by the MCT. This shows $s_m$ converging implies $p_m$ converges.
-
-    For the other direction suppose $p_m \to p$. Distributing inside the products gives $p_2 = a_1 + a_2 + 1 + a_1a_2 > s_2$ and in general $p_m > s_m$ implying that if $p_m$ is bounded then $s_n$ is bounded aswell. This completes the proof.
-
-    \textbf{Summary}: Convergence is if and only if because $s_m \le p_m \le 3^{s_m}$.
-
-    (By the way the inequality $1 + x \le 3^x$ can be derived from $\log(1 + x) \le x$ implying $1 + x \le e^x$, I assume abbott rounded up to $3$.)
+  ($\Leftarrow$) It can be seen that $$\prod_{n=1}^m (1 + a_n) \leq \prod_{n=1}^m (3^n)$$ for all $m$. Now the limit of the sequence on the right is given by $3^a$ where $a = \sum^\infty_{n=1} a_n$ which exists and, because the partial products are monotonically increasing, is greater than every partial product $\prod_{n=1}^m 3^n$ and by extension every partial product $\prod_{n=1}^m (1 + a_n)$. Thus we have shown a bound on the monotonically increasing sequence of partial products for $\prod_{n=1}^\infty (1 + a_n)$, and by the Monotone Convergence test it must converge. 
   }
 \end{solution}
