@@ -1,0 +1,119 @@
+\section{Subsequences and the Bolzano–Weierstrass Theorem}
+
+
+\begin{exercise}
+  Give an example of each of the following, or argue that such a request is impossible.
+  \enum{
+  \item A sequence that has a subsequence that is bounded but contains no subsequence that converges.
+  \item A sequence that does not contain 0 or 1 as a term but contains subsequences converging to each of these values.
+  \item A sequence that contains subsequences converging to every point in the infinite set $\{1,1 / 2,1 / 3,1 / 4,1 / 5, \ldots\}$.
+  \item A sequence that contains subsequences converging to every point in the infinite set $\{1,1 / 2,1 / 3,1 / 4,1 / 5, \ldots\}$, and no subsequences converging to points outside of this set.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Impossible, since by the Bolzano-Weierstrass Theorem there exists a convergent subsequence of the bounded subsequence.
+  \item $$\frac{1}{2}, \frac{1}{2}, \frac{1}{4}, \frac{3}{4}, \frac{1}{8}, \frac{7}{8}, \ldots$$
+  \item Consider the sequence $$\frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{2}{4}, \frac{3}{4}, \ldots$$ In this way, every rational number between $0$ and $1$ is represented in order of increasing denominator. Then it is easy to see that any subsequence $s_n = \frac{n}{c(n+1)}$ converges to $\frac{1}{c}$.
+  \item This is impossible. A subsequence that converges to $0$ can always be constructed from any sequence that satisfies the conditions.
+  }
+\end{solution}
+
+\begin{exercise}
+  Decide whether the following propositions are true or false, providing a short justification for each conclusion.
+  \enum{
+  \item If every proper subsequence of $\left(x_{n}\right)$ converges, then $\left(x_{n}\right)$ converges as well.
+  \item If $\left(x_{n}\right)$ contains a divergent subsequence, then $\left(x_{n}\right)$ diverges.
+  \item If $\left(x_{n}\right)$ is bounded and diverges, then there exist two subsequences of $\left(x_{n}\right)$ that converge to different limits.
+  \item If $\left(x_{n}\right)$ is monotone and contains a convergent subsequence, then $\left(x_{n}\right)$ converges.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item True, since the proper subsequence that begins with the second element converges, so must the original sequence.
+  \item True. If a sequence converges, all subsequences must converge to the same limit; therefore, if a subsequence diverges, then the original sequence must also diverge.
+  \item True. Consider the limit superior and the limit inferior, which both must converge since $(x_n)$ is bounded. Although they are not subsequences themselves, two subsequences can be constructed that converge to these two values. From Exercise 1.2.7, if $(x_n)$ is to be divergent, $\lim \sup a_n \neq \lim \inf a_n$.
+  \item True, since if the subsequence is bounded, so is the original sequence.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Prove that if an infinite series converges, then the associative property holds. Assume $a_{1}+a_{2}+a_{3}+a_{4}+a_{5}+\cdots$ converges to a limit $L$ (i.e., the sequence of partial sums $\left.\left(s_{n}\right) \rightarrow L\right)$. Show that any regrouping of the terms
+    $$
+    \left(a_{1}+a_{2}+\cdots+a_{n_{1}}\right)+\left(a_{n_{1}+1}+\cdots+a_{n_{2}}\right)+\left(a_{n_{2}+1}+\cdots+a_{n_{3}}\right)+\cdots
+    $$
+    leads to a series that also converges to $L$.
+  \item Compare this result to the example discussed at the end of Section $2.1$ where infinite addition was shown not to be associative. Why doesn't our proof in (a) apply to this example?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Any regrouping of the terms is just a subsequence of the original sequence, so it must converge to the same limit.
+  \item We proved that the original sequence converging implies that every subsequence converges, not the other way around.
+  }
+\end{solution}
+
+\begin{exercise}
+  The Bolzano-Weierstrass Theorem is extremely important, and so is the strategy employed in the proof. To gain some more experience with this technique, assume the Nested Interval Property is true and use it to provide a proof of the Axiom of Completeness. To prevent the argument from being circular, assume also that $\left(1 / 2^{n}\right) \rightarrow 0$. (Why precisely is this last assumption needed to avoid circularity?)
+\end{exercise}
+
+\begin{solution}
+  Suppose that $A$ is a nonempty set on $\mathbf{R}$ that is bounded above by $M$. First, choose any arbitrary point $B$ that is less than $M$; divide $A$ into two portions. If the portion greater than $B$ is finite, then it must have a maximum and we have found our supremum; otherwise, we have a new interval $[B,M]$ that we divide in two. If we continue in this fashion (if the top half is empty, proceed with the bottom half), we have an infinite sequence of subsets that we can apply the NIP to; the reason we need the assumption that $\left(1 / 2^n \right) \rightarrow 0$ is because we need to show that the length of the intervals converges to zero and therefore there is only one value that must be the supremum.
+\end{solution}
+
+\begin{exercise}
+  Assume $\left(a_{n}\right)$ is a bounded sequence with the property that every convergent subsequence of $\left(a_{n}\right)$ converges to the same limit $a \in \mathbf{R}$. Show that $\left(a_{n}\right)$ must converge to $a$.
+\end{exercise}
+
+\begin{solution}
+  $(a_n)$ must converge, because if it were to diverge, then by Exercise 2.5.3 there would exist two subsequences that converge to different limits. All that remains to be shown is that $(a_n)$ converges to the same limit as its subsequences. Assume, for contradiction, that the subsequences converge to $b$, $(a_n)$ converges to $a$, and $a\neq b$. Then if we choose $\epsilon = \left| \frac{a-b}{2} \right|$, it is impossible to find an element within that same neighborhood for $b$ beyond the same $N$.
+\end{solution}
+
+\begin{exercise}
+  Use a similar strategy to the one in Example 2.5.3 to show $\lim b^{1 / n}$ exists for all $b \geq 0$ and find the value of the limit. (The results in Exercise 2.3.1 may be assumed.)
+\end{exercise}
+
+\begin{solution}
+  First, note that if $0 < b < 1$, then $b^{1/n}$ is monotone increasing and bounded above by $1$; if $b > 1$, then $b^{1/n}$ is monotone decreasing and bounded below by $0$. So the limit must exist in both cases, and the limit is trivial when $b = 1$ or $b = 0$. Now $b^{1/2n}$ is a subsequence that can also be expressed as the square root of the original sequence; therefore $l = \sqrt l$ and $l = 0$ or $l = 1$. Then it is easy to see that $l = 0$ when $b > 1$ and that $l = 1$ when $0 < b < 1$. 
+\end{solution}
+
+\begin{exercise}
+  Extend the result proved in Example 2.5.3 to the case $|b|<1$; that is, show $\lim \left(b^{n}\right)=0$ if and only if $-1<b<1$.
+\end{exercise}
+
+\begin{solution}
+  ($\Rightarrow$) If $b \leq -1$ or $b > 1$, $b^n$ diverges; if $b = 1$, it converges to $1$.
+
+  ($\Leftarrow$) Consider $|b_n|$ for $-1 < b < 1$; it is just the same sequence as $b^n$ for $0 < b < 1$, and we already shown that it converges to $0$. It is then easily seen that, for any $\epsilon > 0$, $$||b_n| - |0|| < \epsilon \iff |b_n| < \epsilon.$$ 
+\end{solution}
+
+\begin{exercise}
+  Another way to prove the Bolzano-Weierstrass Theorem is to show that every sequence contains a monotone subsequence. A useful device in this endeavor is the notion of a peak term. Given a sequence $\left(x_{n}\right)$, a particular term $x_{m}$ is a peak term if no later term in the sequence exceeds it; i.e., if $x_{m} \geq x_{n}$ for all $n \geq m$.
+  \enum{
+  \item Find examples of sequences with zero, one, and two peak terms. Find an example of a sequence with infinitely many peak terms that is not monotone.
+  \item Show that every sequence contains a monotone subsequence and explain how this furnishes a new proof of the Bolzano-Weierstrass Theorem.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $1/2, 3/4, 7/8 \ldots$ has no peak terms, $1, 1/2, 3/4, 7/8, \ldots$ has one peak term, and $2, 1, 1/2, 3/4, 7/8, \ldots$ has two peak terms. $(-1)^n$ has infinitely many peak terms but is not monotone.
+  \item If a bounded sequence has infinite peak terms, then we have already found our monotone subsequence. If it has finite or no peak terms, consider the subsequence starting from the term after the last peak term, $x_n$, which cannot be a peak term. Then there exists an $n_1\geq n$ such that $x_{n_1} \geq x_n$, and an $n_2 \geq n_1$ such that $x_{n_2} \geq x_{n_1}$, and so on. In this way we have constructed a monotone increasing subsequence. This subsequence must converge by the Monotone Convergence Theorem, which proves the Bolzano-Weierstrass Theorem.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $\left(a_{n}\right)$ be a bounded sequence, and define the set
+  $$
+  S=\left\{x \in \mathbf{R}: x<a_{n} \text { for infinitely many terms } a_{n}\right\}
+  $$
+  Show that there exists a subsequence $\left(a_{n_{k}}\right)$ converging to $s=\sup S$. (This is a direct proof of the Bolzano-Weierstrass Theorem using the Axiom of Completeness.)
+\end{exercise}
+
+\begin{solution}
+  Chooose $\epsilon > 0$. Now consider the $\epsilon$-neighborhood around $s$. There cannot be an infinite number of terms greater than or equal to $s + \epsilon$ because that would mean $s$ is no longer an upper bound for $S$. Similarly, there cannot be an infinite number of terms less than or equal to $s - \epsilon$ with only an finite number of terms greater than $\sup S - \epsilon$, since that would preclude $\sup S$ from being the least upper bound for $S$. Therefore there exists a subsequence of $(a_n)$ that is within $\epsilon$ of $s$ for every $\epsilon > 0$. What remains to be shown, however, is that there is a single subsequence that converges to $s$. To construct this subsequence, take $\epsilon = 1$ and find the first term within this range (which we know exists), then $\epsilon = 1/2, 1/4$, and so forth. We know we can always find a term that comes after the terms we have already used because they are all infinite subsequences.
+\end{solution}
